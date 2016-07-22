@@ -104,46 +104,23 @@ var j = jQuery.noConflict();
 		//});
 
 		/*|----------------------------------------------------------------------|*/
-		/*|-----  CAROUSEL HOME  LIBRERIA REVslider -----|*/
+		/*|-----  CAROUSEL HOME  LIBRERIA FLEXSLIDER -----|*/
 		/*|----------------------------------------------------------------------|*/
-		if ( j.fn.cssOriginal!=undefined)   // CHECK IF fn.css already extended
-        j.fn.css =  j.fn.cssOriginal;
 
-    	// Setear revolution slider
-		var api_rev = j("#carousel-home").revolution({
-			delay           : 6000, 
-			fullWidth       : "on",
-			navigationArrows: "none",
-			navigationType  : 'none', // use none, bullet or thumb
-			onHoverStop     : "off",
-			startheight     : 386,
-		}); 
+		if( j(".js-flexslider").length )
+		{
+			j(".js-flexslider").each(function(){
 
-		// Eventos para flechas
-		j("#pageInicio__slider__arrows a").on( "click" , function(e){
-			e.preventDefault(); // prevent default evento
-			//obtener movimiento
-			var movement = j(this).attr("data-move");
-			//segun movimiento
-			switch( movement ){
-				case 'prev': api_rev.revprev(); break;
-				case 'next': api_rev.revnext(); break;
-				default    : api_rev.revprev(); break;
-			}
-		});
+				/** Actual Elemento **/
+				var current_slider = j(this);
 
-		// Eventos para indicadores - dots 
-		j("#pageInicio__slider__dots a").on( "click" , function(e){
-			e.preventDefault(); // prevent default evento
-			//obtener el orden de slider
-			var index_slider = parseInt( j(this).attr("data-dot") );
-			//remover clase activa a todos los indicadores
-			j("#pageInicio__slider__dots a").removeClass("active");
-			//mover el carousel a esta posición
-			api_rev.revshowslide( index_slider );
-			//agregar clase a elemento actual
-			j(this).addClass("active");
-		});
+				/** Setear Parametros **/
+				current_slider.flexslider({
+					animation: "slide"
+				});
+
+			});	
+		}
 
 
 		/*|----------------------------------------------------------------------|*/

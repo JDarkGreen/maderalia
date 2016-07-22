@@ -326,25 +326,6 @@ body,html
 	height    : 1px 
 	width     : 100%
 
-//LINEA SEPARADORA SLIDER 
-#separator-line-slider
-	background     : url("../../images/img_separator_line.jpg") no-repeat 
-	background-size: cover 
-	display        : block 
-	height         : 5px 
-	width          : 100%
-
-//CORRECCION IMAGENES CAROUSEL
-.owl-carousel
-	.owl-item 
-		backface-visibility: hidden !important 
-		transform          : translateZ(0) scale(1.0, 1.0) !important
-		figure  
-			//background: black 
-			margin    : 0 auto 
-		img 
-			transform-style: initial !important 
-
 //COMPARTIR REDES SOCIALES
 .sectionCommon__social-links
 	ul 
@@ -383,28 +364,6 @@ body,html
 						background: $theme_gplus
 						color     : white 
 
-//SIDEBAR COMUN 
-.sidebarCommon 
-	font-family: "Raleway" , sans-serif
-	padding    : 0 0 200px 
-	/* Lins o botoneras */
-	a 
-		+transition( all 500ms ease-in-out )
-		border-bottom  : 2px solid 
-		color          : black
-		display        : block 
-		font-size      : 16px 
-		font-weight    : 600
-		margin         : 0 5%
-		padding        : 14px 0
-		position       : relative
-		text-decoration: none
-		//Icon 
-		i 
-			font-size: 12px
-			position : absolute
-			right    : 4px
-			top      : 40%
 
 /* Titulo sidebar */
 .titleSidebar
@@ -531,25 +490,6 @@ body,html
 	line-height: 22px 
 
 
-
-/*[ $SECCION DE INFORMACIÓN DE PEDIDOS  ] */
-.sectionDataInfo
-	color     : white
-	padding   : 8px 16px 
-	+border-radius( 0 0 15px 15px )
-	// Título
-	h2 
-		font-family: 'PT Sans', sans-serif
-		font-size  : 20px
-		font-style : italic
-		font-weight: 700
-		line-height: 1em 
-		margin     : 0 auto 5px 
-	//Span o Informaciones
-	span 
-		font-family: 'Fredoka One', cursive
-		margin     : 0 5px
-
 //NAVEGACIÓN PRINCIPAL
 .mainNavigation
 	background: linear-gradient( $theme_green_claro , $theme_green_oscuro )
@@ -611,39 +551,78 @@ body,html
 	max-width: 1000px
 	width    : 100%
 
+/***************************************************************************************/
+/**--  CONTENEDORES EN COMUN  --------------------------------------------------------**/
+/***************************************************************************************/
+
+.mainContent
+	margin : 15px auto 
+	padding: 5px 0 
+
+/** [ SECCION LISTA DE PRODUCTOS ] **/
+.sectionProductList
+	+border-radius( 5px )
+	overflow: hidden
+	//Título
+	h3 
+		background : $theme_brown
+		color      : white 
+		font-size  : 15.21px 
+		font-weight: bold 
+		margin     : 0 
+		padding    : 12px
+	//menu 
+	ul 
+		background     : $theme_green_fondo
+		list-style-type: none 
+		margin         : 0 0 15px
+		padding        : 0 0 10px
+		li 
+			a 
+				border-bottom  : 1px dotted white
+				color          : white
+				display        : block 
+				font-size      : 12px
+				margin         : 0 5px
+				padding        : 8px 8px 8px 12px
+				text-decoration: none 
+				//hover 
+				&:hover 
+					color : $theme_orange
+
+/** [ BOTONERAS ITEMS ] **/
+.pageCommon__botonera
+	+border-radius( 6px )
+	overflow: hidden
+	//Titulo
+	h2 
+		&.title-bg--green
+			background: $theme_green_fondo
+			color     : white 
+			font-size : 15.21px 
+			margin    : 0 
+			padding   : 10px 
+	//Contenedor texto 
+	.container-text
+		//bg gray 
+		&.container-bg--gray
+			background: $theme_gray_superclaro
+			padding   : 5px 20px
+
+		//Párrafos 
+		p 
+			font-size  : 13px 
+			line-height: 18px 
+
 
 /***************************************************************************************/
 /**--  PAGINA INICIO  ----------------------------------------------------------------**/
 /***************************************************************************************/
 
 //Slider De Página
-/*.pageInicio__slider
-	//Wrapper
-	.carousel-inner
-		//Carousel Item
-		.carousel-item
-			background-repeat    : no-repeat
-			background-size      : 100% 100%
-			height               : 485px
-			+transition( 1s ease-in-out left !important )
-
-			//Información Caption Ti´tulo y parrafp
-			.carousel-caption
-				font-family: "Roboto",sans-serif
-				left       : 10%
-				max-width  : 280px
-				padding    : 0
-				right      : inherit
-				text-align : left
-				top        : 30%
-				word-break : break-all
-				h3 , p 
-					line-height: 1em 
-				h3 
-					color      : 
-					font-weight: 700
-				p 
-					font-size  : 30px */
+.pageInicio__slider
+	border     : 0
+	font-family: "Arial",sans-serif
 
 //Slider de Página Revolution Slider
 

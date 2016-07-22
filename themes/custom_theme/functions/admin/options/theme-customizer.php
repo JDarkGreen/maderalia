@@ -46,7 +46,9 @@ function custom_theme_settings_init()
 	//panel telefonos
 	register_setting( 'customThemePagePhone' , 'theme_settings' );
 	//panel información Header
-	register_setting( 'customThemePageHeader' , 'theme_settings' );
+	register_setting( 'customThemePageHeader' , 'theme_settings' );	
+	//panel información Nosotros
+	register_setting( 'customThemePageNosotros' , 'theme_settings' );
 
 	/**
 	* Incluir archivo de Configuracion de Secciones y campos , inputs y texarea
@@ -73,6 +75,7 @@ function custom_theme_options_page()
                 <li><a href="#"> <?= __("Redes Sociales" , LANG ); ?> </a></li>
                 <li><a href="#"> <?= __("Personalización Teléfonos" , LANG ); ?> </a></li>
                 <li><a href="#"> <?= __("Personalización Header" , LANG ); ?> </a></li>
+                <li><a href="#"> <?= __("Personalización Nosotros" , LANG ); ?> </a></li>
             </ul> <!-- /. -->
 
             <!-- CONTENEDOR GENERAL DE PANEL -->
@@ -101,6 +104,15 @@ function custom_theme_options_page()
                 	<?php
 						settings_fields( 'customThemePageHeader' );
 						do_settings_sections( 'customThemePageHeader' );
+						submit_button();
+					?>
+                </div> <!-- /.tabdemo__content-item -->
+
+            	<!-- PANEL -->
+                <div class="tabdemo__content-item">
+                	<?php
+						settings_fields( 'customThemePageNosotros' );
+						do_settings_sections( 'customThemePageNosotros' );
 						submit_button();
 					?>
                 </div> <!-- /.tabdemo__content-item -->

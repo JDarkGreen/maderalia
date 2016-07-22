@@ -181,7 +181,31 @@ function custom_header_render()
 
 
 
+/**
+<?php add_settings_section( $id, $title, $callback, $page ); ?>
+* SECCION NOSOTROS
 
+//Inputs
+add_settings_field( $id, $title, $callback, $page, $section, $args );
+**/
+add_settings_section( PREFIX."_themePage_section_nosotros" , __( 'Personalizar Información Nosotros:' , 'LANG' ), 'custom_settings_section_nosotros_callback', 'customThemePageNosotros' );
+
+function custom_settings_section_nosotros_callback()
+{ 
+	echo __( 'Personaliza los campos correspondientes:', 'LANG' );
+}
+
+//META LOGO
+add_settings_field( 'theme_meta_presentacion', __( 'Presentación', 'LANG' ), 'custom_presentacion_render', 'customThemePageNosotros', PREFIX."_themePage_section_nosotros" );
+//Renderizado 
+function custom_presentacion_render() 
+{ 
+	$options = get_option( 'theme_settings' ); ?>
+
+	<textarea name="theme_settings[theme_meta_presentacion]" id="" style="width:500px;height:300px;max-height:300px;"><?= !empty($options['theme_meta_presentacion']) ? $options['theme_meta_presentacion'] : "" ; ?> </textarea>	
+		
+	<?php
+}
 
 
 

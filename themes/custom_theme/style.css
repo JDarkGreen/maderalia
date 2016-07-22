@@ -36,6 +36,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* rev slider */
 @import url("assets/styles/vendor/revslider.css"); 
 
+/* flex slider */
+@import url("assets/styles/vendor/flexslider/flexslider.css"); 
+
 /* slidebars */
 @import url("assets/styles/vendor/slidebars.min.css"); 
 
