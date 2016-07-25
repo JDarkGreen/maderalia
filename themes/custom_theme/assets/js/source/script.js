@@ -150,6 +150,9 @@ var j = jQuery.noConflict();
 
 				/* Habilitar autoplay */
 				var Autoplay = current.attr('data-autoplay') !== null && typeof( current.attr('data-autoplay') ) !== "undefined"  && current.attr('data-autoplay') !== "false" ? true : false;
+				
+				/* Habilitar time autoplay */
+				var timeAutoplay = current.attr('data-timeautoplay') !== null && typeof( current.attr('data-timeautoplay') ) !== "undefined"  && current.attr('data-timeautoplay') !== "false" ? current.attr('data-timeautoplay') : 2500;
 
 				/* Habilitar dots */
 				var Dot = current.attr('data-dots') !== null && typeof( current.attr('data-dots') ) !== "undefined" && current.attr('data-dots') !== "false" ? true : false;
@@ -164,7 +167,7 @@ var j = jQuery.noConflict();
 					autoplay       : Autoplay,
 					responsiveClass: true,
 					mouseDrag      : true,
-					autoplayTimeout: 2500,
+					autoplayTimeout: parseInt( timeAutoplay ),
 					fluidSpeed     : 2000,
 					smartSpeed     : 2000,
 					dots           : Dot,
@@ -186,11 +189,13 @@ var j = jQuery.noConflict();
 		/*|°°------------- Flechas del carousel ---------------°°|*/
 		//prev carousel
 		j(".js-carousel-prev").on('click',function(e){ 
+			e.preventDefault();
 			var slider = j(this).attr('data-slider');	
 			j("#"+slider).trigger('prev.owl.carousel' , [900] );
 		});
 		//next carousel
 		j(".js-carousel-next").on('click',function(e){ 
+			e.preventDefault();
 			var slider = j(this).attr('data-slider');	
 			j("#"+slider).trigger('next.owl.carousel' , [900] );
 		});

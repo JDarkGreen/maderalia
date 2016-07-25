@@ -157,11 +157,10 @@ body,html
 //+Banners
 //++Banner de Páginas
 .pageCommon__banner
-	font-family: "Roboto Condensed" , sans-serif
 	//Imagen
 	figure 
 		background-size: cover 
-		height         : 142px 
+		height         : 164px 
 //+++Título
 .pageCommon__banner__title
 	//+text-shadow( 1px 1px 4px black )
@@ -197,43 +196,33 @@ body,html
 //+BOTONES
 //++ Botón Ver Más
 .btnCommon__show-more
-	+border-radius( 35px )
-	+box-shadow( inset 0 0 0 0 transparent )
-	+transition( color 1000ms ease-in , box-shadow 750ms ease-in-out )
-	border     : 1px solid transparent
+	+box-shadow( inset 0 0 0 0 $theme_green_oscuro )
+	+transition( box-shadow 600ms ease-in-out , color 500ms ease-in )
+	background : $theme_green_oscuro
+	border     : 1px solid $theme_green_oscuro
 	color      : white 
-	display    : inline-block 
 	font-size  : 14px 
-	font-weight: 700 
-	margin     : 0
-	overflow   : hidden
-	padding    : 5px 30px 
-	text-align : center 
+	line-height: 1em 
+	padding    : 7px 11px
+
 	//hover y focus
 	&:hover , &:focus
 		color          : white 
 		outline        : 0px !important
 		text-decoration: none 
 	&:hover 
-		+box-shadow( inset 300px 0 0 0 white )
-		border: 1px solid 
+		+box-shadow( inset 90px 0 0 0 white )
+		color: $theme_green_oscuro
 
-//++VARIACION A REVERSO
-.btnCommon__show-more--reverse
-	border    : 1px solid white 
-	&:hover 
-		+box-shadow( inset 300px 0 0 0  )
-		border: 1px solid 
-		color : white	
 
-//++VARIACION A TRANSPARENTE
-.btnCommon__show-more--transparent
-	background: transparent 
-	border    : 1px solid white 
-	&:hover 
-		+box-shadow( inset 300px 0 0 0 transparent )
-		border: 1px solid white
-		color : white
+// VARIACIONES 
+
+/** Variación con posición absolute **/
+.btnCommon__show-more--absolute
+	bottom  : 30px
+	position: absolute
+	right   : 10px  
+	z-index : 999
 
 //+TITULOS
 //++ Titulo de Pagina
@@ -257,11 +246,13 @@ body,html
 
 //++ Título de seccion de paginas
 .pageSectionCommon__title
-	font-family: 'Fredoka One', cursive
-	font-size  : 30px
-	font-weight: 600 
-	line-height: 1em  
-	margin     : 0 auto 20px 
+	background   : $theme_green_oscuro
+	border-radius: 6px 6px 0 0
+	color        : white
+	font-size    : 16px
+	font-weight  : 700
+	margin       : 0 auto 10px
+	padding      : 10px 14px
 
 //IMAGEN NOT BLUR ( NO DIFUMINADA )
 .imgNotBlur
@@ -294,6 +285,12 @@ body,html
 	a 
 		color: $theme_pink_dark
 
+/** =====> Variación footer <========== **/
+.sectionSocialLinks--footer
+	margin: 5% auto
+	a 
+		width: auto !important
+
 //BOTÓN HACIA ARRIBA 
 #arrow-up-page
 	+transition( all 500ms ease )
@@ -309,7 +306,7 @@ body,html
 
 //GALERÍAS DE CAROUSEL
 .section__single_gallery
-	margin: 0 auto 10px 
+	margin: 0 auto
 
 //Indicadores de Galería
 .gallery_indicators
@@ -432,20 +429,7 @@ body,html
 	li 
 		font-weight: 600
 
-
-/*[ $TEXTOS ] */
-
-//Texto Web
-.textWeb
-	font-family: "Raleway", sans-serif
-	font-size  : 20px
-	margin     : 0 30px 
-	//hover
-	&:hover 
-		+animation( heartbeat 1s )  
-		text-decoration: none 
-
-/*[ MKIGAS DE PAN O BREADBCRUMBS ] */
+/*[ MIGAS DE PAN O BREADBCRUMBS ] */
 .sectionBreadcrums
 	ul 
 		li 
@@ -466,6 +450,14 @@ body,html
 			&:last-child
 				a 
 					border-right: none
+
+/*[ FONDOS BACKGROUNDS ] */
+//Lemon
+.bgGreenSemiOscuro
+	background: $theme_green_semioscuro
+//Orange dark
+.bgOrangeDark
+	background: $theme_orange_dark
 
 /***************************************************************************************/
 /**--  HEADER   ----------------------------------------------------------------------**/
@@ -512,7 +504,7 @@ body,html
 				padding        : 9px 34px
 				text-decoration: none 
 			//hover u active li 
-			&:hover , &.current-menu-item , &.current_page_item , &.current-menu-ancestor , &.current-menu-parent
+			&:hover , &.current-menu-item , &.current_page_item , &.current-menu-ancestor , &.current-menu-parent , &.current-menu-this-item
 				background: $theme_lemon
 			//hover submenu
 			&:hover 
@@ -593,26 +585,36 @@ body,html
 /** [ BOTONERAS ITEMS ] **/
 .pageCommon__botonera
 	+border-radius( 6px )
+	margin  : 0 auto 20px 
 	overflow: hidden
 	//Titulo
 	h2 
+		color    : white 
+		font-size: 15.21px 
+		margin   : 0 
+		padding  : 10px 
 		&.title-bg--green
 			background: $theme_green_fondo
-			color     : white 
-			font-size : 15.21px 
-			margin    : 0 
-			padding   : 10px 
+		//lemon title
+		&.title-bg--lemon
+			background: $theme_lemon
 	//Contenedor texto 
 	.container-text
 		//bg gray 
 		&.container-bg--gray
 			background: $theme_gray_superclaro
-			padding   : 5px 20px
+			padding   : 15px 20px
+
+		//bg lemon
+		&.container-bg--lemon
+			background: $theme_lemon_claro
+			padding   : 15px 20px
 
 		//Párrafos 
 		p 
 			font-size  : 13px 
-			line-height: 18px 
+			line-height: 18px
+			margin     : 1em 0 
 
 
 /***************************************************************************************/
@@ -699,83 +701,26 @@ body,html
 		margin    : 0 4px 
 		width     : 14px 
 
-//SECCIÓN CATEGORIAS DE PRODUCTOS
-.pageInicio__product-categories
-	padding: 0 0 48px
-	//Item o Artículo
-	.itemCatProduct
-		color      : black 
-		font-family: 'Raleway', sans-serif
-		margin     : 0 15%
-		//Imagen
-		figure 
-			margin    : 0 auto 15px 
-			max-height: 172px 
-			max-width : 198px
-		//Hover item cat
-		&:hover 
-			img
-				+animation( heartbeat 1s ) 
-
-		//Titulo o nombre
-		h2 
-			+text-shadow( -1px 1px 3px black )
-			color      : white
-			display    : inline-block
-			font-family: "Lobster",cursive
-			font-size  : 40px
-			font-weight: 600
-			margin     : 0 auto 10px 
-			//span 
-			span 
-				+text-shadow( none )
-				font-size  : 38px
-				font-weight: 500
-				left       : 1px
-				position   : absolute
-				top        : 2px
-		//Parrafos y slogan
-		p 
-			font-size  : 15px
-			line-height: 1.4em 
-			margin     : 0 auto 
-		//slogan 
-		span.meta-description
-			display    : block 
-			font-size  : 24px 
-			font-style : italic
-			line-height: 1.2em 
-			margin     : 0 auto 30px 
-	
-//SECCIÓN ACERCA DE NOSOTROS
-.pageInicio__nosotros	
-	color      : white 
-	font-family: "Raleway", sans-serif
-	padding    : 26px 0
-	//Titulo de seccion
-	h2 
-		font-family: 'Fredoka One', cursive
-		font-size  : 38px
-		line-height: 1em 
-		margin     : 0 auto 23px 
-	//Imagen
-	figure 
-		margin  : 0
-		overflow: hidden
-		img 
-			+transition( all 800ms ease-in )
-		//Hover
-		&:hover 
+/** [ Slider o Carousel de Productos ] **/
+.carouselProductos 
+	//articulo 
+	.itemProducto
+		//Imagen 
+		figure
+			max-height: 155px 
+			overflow  : hidden 
 			img 
-				+scale( 1.2 )
-
-//SECCION MISCELANEO
-.pageInicio__miscelaneo
-	padding: 47px 0
-
-/* Galería de POST */
-.pageInicio_gal_post
-	//margin: 0 auto 40px
+				+transition( all 700ms ease-in-out )
+		//Titulo 
+		h3 
+			color    : $theme_green_oscuro
+			font-size: 14px 
+			margin   : 0 auto 
+		//hover 
+		&:hover 
+			figure 
+				img 
+					+scale( 1.2 )
 
 //SECCION FACEBOOK
 .pageInicio__facebook
@@ -789,23 +734,55 @@ body,html
 .pageNosotros
 
 	/* Sobreescribiendo las flechas de carousel */
+	.arrowCarouselNosotros
+		align-items    : center 
+		background     : $theme_lemon
+		bottom         : 16px
+		color          : white 
+		display        : flex 
+		height         : 52px 
+		justify-content: center 
+		position       : absolute
+		text-decoration: none 
+		width          : 38px 
+		z-index        : 999
 	.arrowCarouselNosotros-prev
-		bottom: 0
-		right : 9%
+		left  : 0
 	.arrowCarouselNosotros-next
-		bottom: 0
-		right : 0
+		left  : 38px 
+
+//CONTENIDO DE PÁGINA
+.pageNosotros__content
+	margin: 30px auto
+	//Título
+	h1 , h2 , h3 , h4 , h5 
+		color      : $theme_green_oscuro
+		font-size  : 16px 
+		font-weight: 600 
+		margin     : 0 auto 20px 
+	//Párrafos
+	p 
+		color      : black 
+		font-size  : 14px 
+		line-height: 1.4em
 
 //SECCIÓN APTITUDES
+.pageNosotros__aptitudes
+	display: table
+	width  : 100%
+//Misión
+.pageNosotros__mision
+	border-right: 18px solid 
+//ITEM  
 .pageNosotros__item
-	color     : white
-	float     : left
-	margin    : 0 1px
-	padding   : 54px 38px
-	width     : 49.7%
+	color  : white
+	display: table-cell 
+	margin : 0 1px
+	padding: 54px 38px
+	width  : 50%
 	/* Subtitulos de item */
 	h3 
-		font-size: 20px
+		font-size: 22px
 	/* Contenido de Item */
 	.text-content
 		overflow: hidden
@@ -816,37 +793,72 @@ body,html
 
 
 /***************************************************************************************/
+/**--  PÁGINA ESPECIES ---------------------------------------------------------------**/
+/***************************************************************************************/
+
+//Sección de Página 
+.pageEspecies__content
+	margin  : 5px auto
+	overflow: hidden
+
+//Preview item
+.itemEspecie__preview
+	background: white 	
+	border    : 1px solid $theme_gray  
+	display   : block
+	float     : left
+	height    : 204px
+	margin    : 7px
+	overflow  : hidden
+	padding   : 3px
+	width     : 121px
+	+transition( all 500ms ease-in-out )
+	//Link 
+	a 
+		text-decoration: none
+	//Imagen
+	figure 
+		overflow: hidden
+		img 
+			+transition( all 1.2s ease-in-out )
+	//Titulo
+	h3
+		color      : $theme_brown
+		font-size  : 13px 
+		font-weight: bold
+		line-height: 18px 
+		text-align : center
+	//Hover preview 
+	&:hover 
+		border: 1px solid $theme_brown
+		img 
+			+scale( 1.2 )
+
+//Single Detalle Especie
+.articleSingleEspecie
+	margin    : 10px auto 0
+	word-break: break-all
+	//Titulo
+	h1 
+		color      : $theme_brown
+		font-size  : 15px 
+		font-weight: bold 
+		line-height: 20px
+		margin     : 15px auto
+	//Párrafo
+	p 
+		font-size  : 13px 
+		line-height: 18px
+		margin     : 0 auto 5px
+
+
+/***************************************************************************************/
 /**--  PÁGINA PRODUCTOS --------------------------------------------------------------**/
 /***************************************************************************************/
 
 //CONTENEDOR DE PRODUCTOS
 .pageProduct__content
 	margin: 60px auto 0
-
-//Contenedor de Producto
-.itemProducto
-	border   : 2px solid 
-	width    : 100%
-	//Link
-	a 
-		text-decoration: none
-	//Figure - imagen
-	figure 
-		margin: 0
-		overflow: hidden
-		img 
-			+transition( all 600ms ease-in-out )
-		//hover 
-		&:hover 
-			img 
-				+scale( 1.2 )
-	//Titulo
-	h3 
-		color      : white 
-		font-size  : 24px
-		font-weight: 700
-		margin     : 0
-		padding    : 20px 0
 
 //Vista previa de producto
 .itemProducto__preview
@@ -868,8 +880,6 @@ body,html
 	//Imagen
 	figure 
 		height: 496px
-
-//SECCION - DETALLE DE PRODUCTO
 
 //SLOGAN DE PRODUCTO
 .itemProducto__slogan
@@ -1057,40 +1067,39 @@ body,html
 
 //SECCIÓN
 .mainFooter
-	background     : url("../../images/backgrounds/footer_la_dorita_frutas_pulpas_lima_peru.png") no-repeat
-	background-size: 100% 100%
-	color          : #fff
-	font-family    : "Raleway",sans-serif
-	margin         : -80px auto 0
-	padding        : 135px 0 0 0
-
-//Logo
-.mainFooter__logo
-	color      : white 
-	font-family: "Lobster",cursive
-
-//Subtítulos 
-.mainFooter__subtitle
-	font-size  : 15px 
-	font-weight: 600 
-	margin     : 0 auto 15px 
+	background: linear-gradient(#2C8D63, #09704D)
+	color     : white
+	margin    : 16px auto 0
+	padding   : 20px 0 0
 
 /* Item de Footer contiene informaciones */
 .mainFooter__item
-	border-right: 2px solid rgba( 255,255,255 , .4 )
+	border-right: 1px solid $theme_lemon_claro
+	height      : 130px 
 	padding     : 0 5%
+	//Titulos
+	h4 
+		color      : $theme_lemon_claro
+		font-size  : 14px
+		font-weight: normal	
+		margin     : 0 auto 14px 
+		padding    : 0
 	//Parrafos
 	p 
-		font-size: 14px 
+		font-size: 12px 
 		margin   : 0 
 
-//++Seccion de Informacion
-//.mainFooter__information
+/** Copyright **/
+.text-copyright
+	color     : $theme_green_chillon
+	font-size : 12px
+	font-style: italic
+	margin    : 10px auto
 
 //++Seccion de Desarrollo
 .mainFooter__develop
-	font-size : 13px 
-	padding   : 15px 0
+	font-size : 12px 
+	padding   : 15px 0 5px
 	/* Link */
 	a 
 		color: white

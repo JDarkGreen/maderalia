@@ -78,12 +78,38 @@ function create_post_type(){
 		'show_ui' => true,
 		'taxonomies'  => array( 'producto_category' , 'post_tag' ),
 		'menu_icon'   => 'dashicons-cart',
+	);
+
+	/*|>>>>>>>>>>>>>>>>>>>> ESPECIES  <<<<<<<<<<<<<<<<<<<<|*/
+	
+	$labels4 = array(
+		'name'               => __('Especies'),
+		'singular_name'      => __('Especie'),
+		'add_new'            => __('Nueva Especie'),
+		'add_new_item'       => __('Agregar nueva Especie'),
+		'edit_item'          => __('Editar Especie'),
+		'view_item'          => __('Ver Especie'),
+		'search_items'       => __('Buscar Especies'),
+		'not_found'          => __('Especie no encontrado'),
+		'not_found_in_trash' => __('Especie no encontrado en la papelera'),
+	);
+
+	$args4 = array(
+		'labels'      => $labels4,
+		'has_archive' => true,
+		'public'      => true,
+		'hierachical' => false,
+		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes' ),
+		'show_ui' => true,
+		'taxonomies'  => array( 'post_tag' ),
+		'menu_icon'   => 'dashicons-index-card',
 	);	
 
 	/*|>>>>>>>>>>>>>>>>>>>> REGISTRAR  <<<<<<<<<<<<<<<<<<<<|*/
 	register_post_type( 'slider-home' , $args  );
 	register_post_type( 'servicio' , $args2 );
 	register_post_type( 'producto-maderalia' , $args3 );
+	register_post_type( 'especie-maderalia' , $args4 );
 
 
 	flush_rewrite_rules();

@@ -1,9 +1,4 @@
-<?php  
-/**
-* Plantilla Configuración del Tema
-**/
-?>
-<?php  
+<?php /** * Plantilla Configuración del Tema **/
 
 /**
 <?php add_settings_section( $id, $title, $callback, $page ); ?>
@@ -207,9 +202,68 @@ function custom_presentacion_render()
 	<?php
 }
 
+//MISION
+add_settings_field( 'theme_mision', __( 'Misión Empresa:', 'LANG' ), 'custom_theme_mision_render', 'customThemePageNosotros', PREFIX."_themePage_section_nosotros" );
+//Renderizado 
+function custom_theme_mision_render() 
+{ 
+	$options = get_option( 'theme_settings' ); ?>
+
+	<textarea name="theme_settings[theme_mision]" id="" style="width:500px;height:150px;max-height:150px;"><?= !empty($options['theme_mision']) ? $options['theme_mision'] : "" ; ?> </textarea>	
+		
+	<?php
+}
+
+//VISION
+add_settings_field( 'theme_vision', __( 'Visión Empresa:', 'LANG' ), 'custom_theme_vision_render', 'customThemePageNosotros', PREFIX."_themePage_section_nosotros" );
+//Renderizado 
+function custom_theme_vision_render() 
+{ 
+	$options = get_option( 'theme_settings' ); ?>
+
+	<textarea name="theme_settings[theme_vision]" id="" style="width:500px;height:150px;max-height:150px;"><?= !empty($options['theme_vision']) ? $options['theme_vision'] : "" ; ?> </textarea>	
+		
+	<?php
+}
 
 
 
-?>
 
 
+/**
+<?php add_settings_section( $id, $title, $callback, $page ); ?>
+* PERSONALIZAR FOOTER
+
+//Inputs
+add_settings_field( $id, $title, $callback, $page, $section, $args );
+**/
+add_settings_section( PREFIX."_themePage_footer" , __( 'Personalizar Footer:' , 'LANG' ), 'custom_settings_footer_callback', 'customThemePageFooter' );
+
+function custom_settings_footer_callback()
+{ 
+	echo __( 'Personaliza los campos correspondientes:', 'LANG' );
+}
+
+//TEXTO FOOTER
+add_settings_field( 'theme_footer_text', __( 'Presentación', 'LANG' ), 'custom_footer_text_render', 'customThemePageFooter', PREFIX."_themePage_footer" );
+//Renderizado 
+function custom_footer_text_render() 
+{ 
+	$options = get_option( 'theme_settings' ); ?>
+
+	<textarea name="theme_settings[theme_footer_text]" id="" style="width:400px;height:100px;max-height:100px;"><?= !empty($options['theme_footer_text']) ? $options['theme_footer_text'] : "" ; ?> </textarea>	
+		
+	<?php
+}
+
+//TEXTO INFORMACIÓN FOOTER
+add_settings_field( 'theme_footer_more_info', __( 'Más Información Footer', 'LANG' ), 'custom_footer_more_info_render', 'customThemePageFooter', PREFIX."_themePage_footer" );
+//Renderizado 
+function custom_footer_more_info_render() 
+{ 
+	$options = get_option( 'theme_settings' ); ?>
+
+	<textarea name="theme_settings[theme_footer_more_info]" id="" style="width:400px;height:200px;max-height:200px;"><?= !empty($options['theme_footer_more_info']) ? $options['theme_footer_more_info'] : "" ; ?> </textarea>	
+		
+	<?php
+}
