@@ -707,8 +707,12 @@ body,html
 	.itemProducto
 		//Imagen 
 		figure
-			max-height: 155px 
-			overflow  : hidden 
+			align-items: center
+			background : white
+			display    : flex
+			height     : 147px
+			max-height : 147px
+			overflow   : hidden
 			img 
 				+transition( all 700ms ease-in-out )
 		//Titulo 
@@ -807,11 +811,11 @@ body,html
 	border    : 1px solid $theme_gray  
 	display   : block
 	float     : left
-	height    : 204px
-	margin    : 7px
+	height    : 220px
+	margin    : 7px 6px
 	overflow  : hidden
 	padding   : 3px
-	width     : 121px
+	width     : 23%
 	+transition( all 500ms ease-in-out )
 	//Link 
 	a 
@@ -837,7 +841,6 @@ body,html
 //Single Detalle Especie
 .articleSingleEspecie
 	margin    : 10px auto 0
-	word-break: break-all
 	//Titulo
 	h1 
 		color      : $theme_brown
@@ -856,40 +859,84 @@ body,html
 /**--  PÁGINA PRODUCTOS --------------------------------------------------------------**/
 /***************************************************************************************/
 
-//CONTENEDOR DE PRODUCTOS
-.pageProduct__content
-	margin: 60px auto 0
+/** [ PRODUCTOS CONTENEDOR GALERIA ] **/
+.pageProyectos__content 
+	margin: 10px auto 0
 
-//Vista previa de producto
-.itemProducto__preview
-	margin   : 0 auto 40px
-	max-width: 287px
-	//Imagenprepros
+//Preview del Proyecto
+.articleProyecto__preview
+	background: white
+	border    : 1px solid #CCC
+	display   : block
+	float     : left
+	height    : 225px
+	margin    : 7px 4px
+	overflow  : hidden
+	padding   : 5px
+	text-align: center
+	width     : 24.2%
+	+transition( all 500ms ease-in )
+	//link 
+	a 
+		text-decoration: none
+	//image 
 	figure 
-		align-content  : center	
-		display        : flex
-		flex-wrap      : wrap
-		height         : 283px
-		justify-content: center
-		width          : 100%
+		overflow: hidden
+		img 
+			+transition( all 900ms ease-in )
+	//titulo
+	h3
+		color      : #666666
+		font-size  : 13px  
+		font-style : italic
+		font-weight: bold
+		margin     : 0 auto
+	//Hover 
+	&:hover  
+		border: 1px solid $theme_brown
+		//Image 
+		img 
+			+scale( 1.2 )
 
-//Vista detallada total de producto
-.itemProducto__detail
-	margin   : 0 auto 15px
-	max-width: 500px
-	//Imagen
-	figure 
-		height: 496px
+/** [ SECCIÓN DE PAGINACIÓN ] **/
+.sectionPagination
+	margin: 20px auto 25px
+	a 
+		background     : $theme_green_oscuro
+		border-radius  : 4px
+		color          : #FFF
+		display        : inline-block
+		font-size      : 13px 
+		margin         : 2px
+		padding        : 3px 8px
+		text-decoration: none 
+		+transition( all 500ms ease-in )
+		//hover y activo
+		&:hover , &.active 
+			background: $theme_lemon 
 
-//SLOGAN DE PRODUCTO
-.itemProducto__slogan
-	display    : block
-	font-family: "Raleway" , sans-serif
-	font-size  : 24px
-	font-style : italic
-	font-weight: 600
-	line-height: 1.2em
-	margin     : 0 auto 60px
+
+/** [ SINGLE PRODUCTO ] **/
+
+/** [ contenedor de especies ] **/
+.sectionEspecies
+	h3 
+		font-size  : 15px
+		font-weight: bold
+		line-height: 18px
+	//Lista
+	ul 
+		margin: 13px auto 
+		li 
+			a 
+				color          : $theme_green_oscuro
+				font-size      : 13px 
+				text-decoration: none 
+
+
+
+
+
 
 
 /***************************************************************************************/

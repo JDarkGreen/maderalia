@@ -26,6 +26,9 @@ function load_custom_scripts()
 	//cargar fancybox
 	wp_enqueue_script('fancybox', THEMEROOT . '/assets/js/vendor/jquery.fancybox.pack.js', array('jquery'), '2.1.5', true);
 
+	//cargar prettyphoto
+	wp_enqueue_script('prettyphoto', THEMEROOT . '/assets/js/vendor/jquery.prettyPhoto.js', array('jquery'), '3.1.6', true);
+
 	//cargar sliderevolution
 	wp_enqueue_script('revslidertools', THEMEROOT . '/assets/js/vendor/jquery.themepunch.plugins.min.js', array('jquery'), '1.0', true);	
 

@@ -28,7 +28,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import url("assets/styles/vendor/owl.carousel.css"); 
 
 /* fancybox */
-@import url("assets/styles/vendor/fancybox/jquery.fancybox.css"); 
+@import url("assets/styles/vendor/fancybox/jquery.fancybox.css");
+
+/* prettyphoto */
+@import url("assets/styles/vendor/prettyphoto/css/prettyPhoto.css"); 
 
 /* parsley */
 @import url("assets/styles/vendor/parsley.css"); 

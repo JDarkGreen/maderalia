@@ -275,7 +275,16 @@ var j = jQuery.noConflict();
 			'closeSpeed' : 300,
 		});
 
+		/*|----------------------------------------------------------------------|*/
+		/*|----- PRETTY PHOTO GALERIA   -----|*/
+		/*|----------------------------------------------------------------------|*/
 
+		if( j("a.gallery-prettyphoto").length )
+		{
+			j("a.gallery-prettyphoto").prettyPhoto({
+				default_width : 640,
+			});
+		}
 
 		/*|-------------------------------------------------------------|*/
 		/*|-----  EVENTO AL DAR CHECK EN UN INPUT CHECKBOX.  ------|*/

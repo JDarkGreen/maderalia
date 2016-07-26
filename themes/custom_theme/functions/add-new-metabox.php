@@ -449,4 +449,88 @@ function cd_mb_revslider_home_save( $post_id )
         update_post_meta( $post_id, 'mb_revslider_select', esc_attr( $_POST['mb_revslider_select'] ) );
 }
 
+
+/*|-------------------------------------------------------------------------|*/
+/*|------------ METABOX ESPECIES EN PRODUCTOS CHECKBOX   -----------------|*/
+/*|-------------------------------------------------------------------------|*/
+
+//Este metabox permite agregar el metabox de especies en 
+//productos
+add_action('add_meta_boxes', 'theme_add_species_on_products');
+
+function theme_add_species_on_products()
+{
+  add_meta_box( 'mb-species-on-products', 'Adjuntar Especies:', 'theme_mb_species_on_products_cb', array('producto-maderalia' ) , 'side', 'high' );
+}
+
+//customizar box
+function theme_mb_species_on_products_cb( $post )
+{
+  // $post is already set, and contains an object: the WordPress post
+    global $post;
+
+  $values = get_post_custom( $post->ID );
+
+  #Array Especies;
+  $array_species = $values['mb_species_chkbox'][0];
+  $array_species = unserialize( $array_species );
+  
+  $array_species = !empty($array_species) && !is_null($array_species) ? $array_species : array("");
+
+  #var_dump($array_species );
+ 
+  // We'll use this nonce field later on when saving.
+    wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+
+    ?>
+    <p>
+      <strong> Elige Especie(s) para este producto: </strong> <br/>
+      <?php
+        #Obtener todas las especies 
+        $args = array(
+          'post_status'    => 'publish',
+          'post_type'      => 'especie-maderalia',
+          'posts_per_page' => -1,
+        );
+        $especies = get_posts( $args );
+
+        #variable de control 
+        $i = 0;
+        foreach( $especies as $especie ) :
+      ?>
+      <input type="checkbox" id="mb_species_chkbox[<?= $especie->ID ?>]" name="mb_species_chkbox[<?= $i; ?>]" value="<?= $especie->ID ?>" <?= in_array( $especie->ID , $array_species ) == true ? "checked" : ""; ?> />
+      <label for="mb_species_chkbox[<?= $especie->ID ?>]"> <?= $especie->post_title; ?> </label> <br/>
+      <?php $i++; endforeach; ?>
+    </p>
+    <?php    
+}
+
+//guardar la data
+add_action( 'save_post', 'cd_mb_species_on_products_save' );
+
+function cd_mb_species_on_products_save( $post_id )
+{
+    // Bail if we're doing an auto save
+    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+     
+    // if our nonce isn't there, or we can't verify it, bail
+    if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
+     
+    // if our current user can't edit this post, bail
+    if( !current_user_can( 'edit_post' ) ) return;
+     
+    // now we can actually save the data
+    $allowed = array( 
+        'a' => array( // on allow a tags
+            'href' => array() // and those anchors can only have href attribute
+        )
+    );
+     
+    // Make sure your data is set before trying to save it
+    $chk = isset( $_POST['mb_species_chkbox'] ) && $_POST['mb_species_chkbox'] ? $_POST['mb_species_chkbox'] : '';
+    update_post_meta( $post_id, 'mb_species_chkbox', $chk );
+}
+
+
+
 ?>
