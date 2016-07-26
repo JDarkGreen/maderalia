@@ -67,7 +67,7 @@
 						<a href="<?= $feat_image; ?>" class="gallery-prettyphoto" rel="prettyPhoto[productos_gal]" title="<?= get_the_title(); ?>">
 							<!-- Imagen -->
 							<figure>
-								<?php if( has_post_thumbnail() ) : the_post_thumbnail('full', array('class'=> 'img-fluid' , 'alt' => get_the_title() ) ); endif;
+								<?php if( has_post_thumbnail() ) : the_post_thumbnail('full', array('class'=> 'center-block' , 'alt' => get_the_title() ) ); endif;
 								?>
 							</figure> <!-- /. -->
 							<!-- Titulo del proyecto -->
