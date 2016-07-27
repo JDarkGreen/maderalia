@@ -109,7 +109,7 @@ include( locate_template("partials/slider-home/slider-home.php") );
 											'order'          => 'ASC',
 											'orderby'        => 'menu_order',
 											'post_status'    => 'publish',
-											'post_type'      => 'producto-maderalia',
+											'post_type'      => 'proyecto-maderalia',
 											'posts_per_page' => -1,
 										);
 										$productos = get_posts( $args );
@@ -118,11 +118,10 @@ include( locate_template("partials/slider-home/slider-home.php") );
 									<articulos class="itemProducto text-xs-center">
 										<!-- Imagen -->
 										<a href="<?= get_permalink($producto->ID); ?>">
-											<figure> 
-												<?php if( has_post_thumbnail($producto->ID) ) : 
-													echo get_the_post_thumbnail( $producto->ID, 'full' , array('class'=>'img-fluid center-block') );
-													endif;
-												?>
+											<?php  
+												$feat_img = wp_get_attachment_url( get_post_thumbnail_id($producto->ID) );
+											?>
+											<figure style='background-image: url(<?= $feat_img; ?>)'>
 											</figure> <!-- /fin imagen -->
 										</a>
 										<!-- Nombre o título -->
