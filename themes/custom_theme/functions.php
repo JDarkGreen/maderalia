@@ -24,6 +24,7 @@ require_once("admin/custom-scripts.php");
 **/
 require_once('functions/admin/options/theme-customizer.php');
 
+
 /***********************************************************************************************/
 /* 	Archivos de Condiguración en el Tema  */
 /***********************************************************************************************/

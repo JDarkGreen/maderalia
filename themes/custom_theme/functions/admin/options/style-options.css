@@ -1,0 +1,19 @@
+.sectionCustomTemplate
+{
+	/*background: green;*/
+	min-height: 100px;
+	padding   : 20px;
+	width     : 95%;
+}
+.tabs__menu li{
+	display   : inline-block;
+	padding   : 10px;
+	background: rgba( 0 , 128 , 0 , .7 );
+	transition: all 500ms ease-in;
+}
+.tabs__menu li:hover , .tabs__menu li.active {
+	background    : rgba( 0 , 128 , 0 , 1 );
+	outline       : 3px solid rgba( 0 , 128 , 0 , 1 );
+	outline-offset: 4px;
+}
+.tabs__menu li a { color: white; text-decoration: none }

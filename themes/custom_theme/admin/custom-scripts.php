@@ -27,6 +27,11 @@ function load_admin_custom_enqueue() {
 	//configuraciones generales de acuerdo a las librerias usadas anteriormente
 	wp_enqueue_script('wp-js-custom-theme-admin', THEMEROOT . '/admin/js/custom-theme-admin.js', array('jquery' ), '', true);
 
+	/**
+	* Incluir Estilos del tema en las opciones
+	**/
+	wp_enqueue_style( 'options-theme-style', THEMEROOT . "/functions/admin/options/style-options.css" );
+
 }
 
 add_action('admin_enqueue_scripts', 'load_admin_custom_enqueue');

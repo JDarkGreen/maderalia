@@ -63,11 +63,20 @@
 						<?php  
 							#Obtener Imagen Destacada
 							$feat_image = get_the_post_thumbnail_url( get_the_ID() , 'full' );
+
+							#Obtener descripcion imagen destacada
+							$id_feat_img     = get_post_thumbnail_id( get_the_ID() );
+							$attachment_img  = get_post( $id_feat_img );
+							$description_img = $attachment_img->post_content;
+
+							$contenido_post = wp_strip_all_tags( get_the_content() );
 						?>
-						<a href="<?= $feat_image; ?>" class="gallery-prettyphoto" rel="prettyPhoto[productos_gal]" title="<?= get_the_title(); ?>">
+						<a href="<?= $feat_image; ?>" class="gallery-prettyphoto" rel="prettyPhoto[productos_gal]" title="<?= $contenido_post; ?>" >
 							<!-- Imagen -->
 							<figure>
-								<?php if( has_post_thumbnail() ) : the_post_thumbnail('full', array('class'=> 'center-block' , 'alt' => get_the_title() ) ); endif;
+								<?php if( has_post_thumbnail() ) : 
+									the_post_thumbnail('full', array( 'class'=> 'center-block' , 'alt' => get_the_title() ) ); 
+								endif;
 								?>
 							</figure> <!-- /. -->
 							<!-- Titulo del proyecto -->

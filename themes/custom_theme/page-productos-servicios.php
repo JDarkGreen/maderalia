@@ -1,18 +1,26 @@
-<?php  
-/**
-** Archivo Single: Producto Maderalia
-**/
+<?php /* Template Name: Página Productos Template */ ?>
+<!-- Header -->
+<?php 
+	get_header(); 
+	$options = get_option("theme_settings");
 
-get_header(); 
-$options = get_option("theme_settings");
+	global $post; //Objeto actual - Pagina 
+	$banner = $post;  // Seteamos la variable banner de acuerdo al post
+	include( locate_template("partials/common/banner-common-pages.php") ); 
 
-global $post; //Objeto actual - Pagina 
+	#Buscamos página de proyectos
+	$page_proyectos = get_page_by_title("Proyectos");
 
-#Buscamos página de proyectos
-$page_proyectos = get_page_by_title("Proyectos");
-$banner = $page_proyectos;  // Seteamos la variable banner de acuerdo a la página o post
-include( locate_template("partials/common/banner-common-pages.php") ); 
-
+	#Obtener el primer producto o servicio 
+	$args = array(
+		'order'          => 'ASC',
+		'orderby'        => 'menu_order',
+		'post_status'    => 'publish',
+		'post_type'      => 'producto-maderalia',
+		'posts_per_page' => -1,
+	);
+	$productos     = get_posts( $args );	
+	$main_producto = $productos[0];	
 ?>
 
 <!-- Contenedor Principal -->
@@ -30,7 +38,7 @@ include( locate_template("partials/common/banner-common-pages.php") );
 				<aside class="pageCommon__sidebar">
 					<?php  
 						#pasar parametro id activo producto o servicio 
-						$item_product_active_id = $post->ID;
+						$item_product_active_id = $main_producto->ID;
 						# Incluir Template Productos
 						include( locate_template("partials/common/sidebar-products.php") );
 					?>
@@ -65,7 +73,7 @@ include( locate_template("partials/common/banner-common-pages.php") );
 			<!-- INFORMACIÓN DE PRODUCTO -->
 			<div class="col-xs-8">
 				
-				<!-- Título de Página --> <h2 class="pageSectionCommon__title pageSectionCommon__title--orange text-uppercase"> <?= __( $post->post_title , LANG ); ?> </h2>
+				<!-- Título de Página --> <h2 class="pageSectionCommon__title pageSectionCommon__title--orange text-uppercase"> <?= __( $main_producto->post_title , LANG ); ?> </h2>
 
 				<!-- Limpiar floats --> <div class="clearfix"></div>
 
@@ -74,8 +82,8 @@ include( locate_template("partials/common/banner-common-pages.php") );
 					<!-- IMAGEN -->
 					<figure>
 						<?php 
-							if( has_post_thumbnail( $post->ID ) ) : 
-								echo get_the_post_thumbnail( $post->ID , 'full' , array('class'=>'img-fluid imgNotBlur') );
+							if( has_post_thumbnail( $main_producto->ID ) ) : 
+								echo get_the_post_thumbnail( $main_producto->ID , 'full' , array('class'=>'img-fluid imgNotBlur') );
 							endif;
 						?>
 					</figure>
@@ -90,7 +98,7 @@ include( locate_template("partials/common/banner-common-pages.php") );
 						<!-- Especies adjuntadas a este producto -->
 						<?php  
 							#Extraer metabox con las especies
-							$this_especies = get_post_meta( $post->ID , 'mb_species_chkbox' , true );
+							$this_especies = get_post_meta( $main_producto->ID , 'mb_species_chkbox' , true );
 
 							if( !empty($this_especies) && !is_null($this_especies) ) :
 
