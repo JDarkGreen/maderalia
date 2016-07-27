@@ -117,7 +117,7 @@ include( locate_template("partials/slider-home/slider-home.php") );
 									?> <!-- Item o artículos  -->
 									<articulos class="itemProducto text-xs-center">
 										<!-- Imagen -->
-										<a href="<?= get_permalink($producto->ID); ?>">
+										<a href="<?= get_permalink($producto->ID); ?>" class="gallery-prettyphoto" rel="galeria-productos">
 											<?php  
 												$feat_img = wp_get_attachment_url( get_post_thumbnail_id($producto->ID) );
 											?>
