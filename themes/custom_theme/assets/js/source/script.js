@@ -54,8 +54,16 @@ var j = jQuery.noConflict();
 
 		/** Abrir Menú **/
 		j("#open-menu-mobile").on("click",function(e){
-			e.preventDefault(); //prevenir acciones por default
-			API_MENU.open();
+			//e.preventDefault(); //prevenir acciones por default
+
+			if( j(this).hasClass('open') )
+			{	
+				API_MENU.close();
+				j(this).addClass("closed").removeClass("open");
+			}else{
+				API_MENU.open();
+				j(this).addClass("open").removeClass("closed");
+			}
 		});
 
 		/* Menú de productos */
@@ -81,8 +89,16 @@ var j = jQuery.noConflict();
 
 		/** Abrir Menú **/
 		j("#open-menu-right-mobile").on("click",function(e){
-			e.preventDefault(); //prevenir acciones por default
-			API_MENU_PROD.open();
+			//e.preventDefault(); //prevenir acciones por default
+
+			if( j(this).hasClass('open') )
+			{	
+				API_MENU_PROD.close();
+				j(this).addClass("closed").removeClass("open");
+			}else{
+				API_MENU_PROD.open();
+				j(this).addClass("open").removeClass("closed");
+			}
 		});
 
 
@@ -219,7 +235,7 @@ var j = jQuery.noConflict();
 				      	320:{
 				            items: parseInt( Itemsresponsive )
 				        },
-				        640:{
+				        650:{
 				            items: parseInt( Items )
 				        },
 			    	}	
@@ -380,28 +396,30 @@ var j = jQuery.noConflict();
 
 		j('#form-contacto').parsley();
 
-		/*j("#form-contacto").submit( function(e){
+		j("#form-contacto").submit( function(e){
 			e.preventDefault();
 			//Subir el formulario mediante ajax
 			j.post( url + '/email/enviar.php', 
 			{ 
 				name   : j("#input_name").val(),
+				address: j("#input_address").val(),
 				email  : j("#input_email").val(),
 				phone  : j("#input_phone").val(),
-				subject: j("#input_subject").val(),
+				/*subject: j("#input_subject").val(),*/
 				message: j("#input_message").val(),
 			},function(data){
 				alert( data );
 
 				j("#input_name").val("");
+				j("#input_address").val("");
 				j("#input_email").val("");
 				j("#input_phone").val("");
-				j("#input_subject").val("");
+				/*j("#input_subject").val("");*/
 				j("#input_message").val("");
 
 				window.location.reload(false);
 			});			
-		}); */
+		}); 
 
 	});
 

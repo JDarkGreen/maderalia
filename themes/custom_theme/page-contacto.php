@@ -34,22 +34,22 @@
 				<h2><?= __( "Formulario de Contacto" ,"LANG" ); ?></h2>
 
 				<!-- Formulario -->
-				<form method="post">
+				<form id="form-contacto" method="post">
 
 					<!-- Nombre -->
-					<input type="text" class="text-form" name="txt_name" required="" placeholder="Nombre Completo" min="4">
+					<input id="input_name" type="text" class="text-form" name="txt_name" required="" placeholder="Nombre Completo">
 					
 					<!-- Direccion -->
-					<input type="text" class="text-form" name="txt_direc" required="" placeholder="Dirección" min="4">
+					<input id="input_address" type="text" class="text-form" name="txt_direc" required="" placeholder="Dirección">
 					
 					<!-- Telefono -->
-					<input type="text" class="text-form" name="txt_telf" required="" placeholder="Teléfono">
+					<input id="input_phone" type="text" class="text-form" name="txt_telf" required="" placeholder="Teléfono">
 					
 					<!-- Email -->
-					<input type="email" class="text-form" name="txt_correo" required="" placeholder="Correo electronico">
+					<input id="input_email" type="email" class="text-form" name="txt_correo" placeholder="Correo electronico" data-parsley-trigger="change" required="" data-parsley-type-message="Escribe un email válido">
 					
 					<!-- Consulta -->
-					<textarea name="text_area" class="text_area" cols="" rows="" placeholder="Consulta.."></textarea>
+					<textarea id="input_message" name="text_area" class="text_area" cols="" rows="" placeholder="Consulta.."></textarea>
 					
 					<input type="submit" name="btn_enviar" class="btnCommon__show-more pull-xs-right">
 

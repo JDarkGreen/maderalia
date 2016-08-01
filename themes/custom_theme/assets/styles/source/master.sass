@@ -1229,23 +1229,23 @@ body,html
 		position: fixed
 		right   : 0 
 		top     : 0 
-		z-index : 999
+		z-index : 99999
 		.logo 
-			margin   : 0 auto 
-			max-width: 40px 
+			margin   : 10px auto 
+			max-width: 40px
+			width    : 40px 
 
 	/** [ MOBILE BUTTONS HEADER MENU ] **/
 	.btnMobile__menu
 		color          : $theme_green_oscuro
-		font-size      : 40px
+		font-size      : 50px
 		line-height    : 1em
 		margin         : 6px 15px
+		position       : relative
 		text-decoration: none
-		+transition( all 900ms ease )
+		z-index        : 999999
 		&:focus , &:hover 
-			color: $theme_green_oscuro
-		&:hover 
-			+rotateY( 360deg ) 
+			color: $theme_green_oscuro 
 
 	/** [ MAIN NAVIGATION MOBILE ] **/
 	.mainNavigationMobile
@@ -1271,6 +1271,12 @@ body,html
 	//LAYOUTS DE PÁGINAS
 	.pageWrapperLayout
 		padding: 0 15px
+
+	/** PAGINA INICIO **/
+	.carouselProductos 
+		.itemProducto 
+			figure
+				width: 100%
 
 	/** [ PÁGINA NOSOTROS ] **/
 	.pageNosotros__item
