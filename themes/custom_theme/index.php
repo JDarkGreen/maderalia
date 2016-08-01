@@ -137,7 +137,11 @@ include( locate_template("partials/slider-home/slider-home.php") );
 								<!-- Separar --> <p></p>
 
 								<!-- Boton de ver más -->
-								<a href="" id="" class="btnCommon__show-more pull-xs-right">
+								<?php  
+									#Página especies
+									$page_proyectos = get_page_by_title("Proyectos");
+								?>
+								<a href="<?= get_permalink( $page_proyectos->ID ); ?>" id="" class="btnCommon__show-more pull-xs-right">
 									<?php _e( "Ver más" , LANG ); ?>						
 								</a>
 
