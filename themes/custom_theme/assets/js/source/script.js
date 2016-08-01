@@ -22,7 +22,7 @@ var j = jQuery.noConflict();
 		/*|-----  SLIDEBAR VERSION MOBILE  -----|*/
 		/*|----------------------------------------------------------------------|*/
 
-		var mySlidebars = new j.slidebars({
+		/*var mySlidebars = new j.slidebars({
 			disableOver       : 568, // integer or false
 			hideControlClasses: true, // true or false
 			scrollLock        : false, // true or false
@@ -40,7 +40,51 @@ var j = jQuery.noConflict();
 		j("#toggle-right-nav").on('click',function(){
 			mySlidebars.slidebars.toggle('right');
 		});
+		*/
+
+		/*|----------------------------------------------------------------------|*/
+		/*|-----  MMENU VERSION MOBILE   -----|*/
+		/*|----------------------------------------------------------------------|*/
 		
+		/** MENÚ DE NAVEGACIÓN LATERAL **/
+
+		/* Menú de navegación */
+		j("#js-menu-nav").mmenu();
+		var API_MENU = j("#js-menu-nav").data( "mmenu" );		
+
+		/** Abrir Menú **/
+		j("#open-menu-mobile").on("click",function(e){
+			e.preventDefault(); //prevenir acciones por default
+			API_MENU.open();
+		});
+
+		/* Menú de productos */
+		j("#js-menu-productos").mmenu({
+			offCanvas: {
+				"position" : "right",
+				"zposition": "next",
+            },
+        	"navbars": [
+            	{
+               		"position": "top",
+               		"content": [
+                  		"searchfield"
+               		]
+            	}
+         	]
+      		}, {
+         	"searchfield": {
+            	"clear": true
+         	}
+      	});
+		var API_MENU_PROD = j("#js-menu-productos").data( "mmenu" );
+
+		/** Abrir Menú **/
+		j("#open-menu-right-mobile").on("click",function(e){
+			e.preventDefault(); //prevenir acciones por default
+			API_MENU_PROD.open();
+		});
+
 
 		/*|----------------------------------------------------------------------|*/
 		/*|-----  CAROUSEL HOME LIBRERIA  -----|*/

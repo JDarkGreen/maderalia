@@ -39,7 +39,10 @@
 	$admin_bar = is_admin_bar_showing() ? 'mainHeader__active' : '';
 ?>
 
-<!-- Contenedor Version Desktop -->
+<!-- Div contenedor o wrapper para emplear plugin mmenu -->
+<div id="mmenu-container">
+
+<!-- Contenedor Versión Desktop -->
 <header class="mainHeader hidden-xs-down relative">
 
 	<!-- Primera sección Contenedor de Información y Pedido -->
@@ -107,4 +110,57 @@
 
 </header> <!-- /.mainHeader  -->
 
-</body> <!-- /-.body -->
+<!-- Contenedor Versión Mobile - Nota: Agregar clase Fixed para evitar problemas 
+con librería mmenu -->
+<header class="mainHeader hidden-sm-up Fixed">
+	
+	<!-- Menú lateral izquierdo -->
+	<a href="#" id="open-menu-mobile" class="pull-xs-left btnMobile__menu">
+		<i class="fa fa-bars" aria-hidden="true"></i>
+	</a> <!-- /. -->
+
+	<!-- Menú lateral derecha -->
+	<a href="#" id="open-menu-right-mobile" class="pull-xs-right btnMobile__menu">
+		<i class="fa fa-bars" aria-hidden="true"></i>
+	</a> <!-- /. -->
+
+	<!-- Logo Centrado -->
+	<h1 class="logo">
+		<a href="<?= site_url(); ?>">
+			<img src="<?= $logo_theme; ?>" alt="" class="img-fluid center-block" />
+		</a>
+	</h1>
+
+</header> <!-- /.mainHeader hidden-sm-up -->
+
+<!-- Menú oculto de navegación lateral izquierda -->
+<nav id="js-menu-nav" class="mainNavigationMobile">
+	<!-- Menu de Navegacion Izquierda -->
+	<?php wp_nav_menu(
+		array(
+			'menu_class'     => 'main-menu',
+			'theme_location' => 'main-menu'
+		));
+	?>
+</nav>
+
+<!-- Menú oculto de navegación lateral derecha -->
+<div id="js-menu-productos" class="mainNavigationMobile">
+
+	<ul>
+	<?php  
+		#Obtener el primer producto o servicio 
+		$args = array(
+			'order'          => 'ASC',
+			'orderby'        => 'menu_order',
+			'post_status'    => 'publish',
+			'post_type'      => 'producto-maderalia',
+			'posts_per_page' => -1,
+		);
+		$productos     = get_posts( $args );	
+		foreach( $productos as $producto ):	
+	?>	<li> <a href="<?= get_permalink( $producto->ID ); ?>"> <?= $producto->post_title; ?> </a></li>
+	<?php endforeach; ?>
+	</ul> <!-- /end of list of products -->
+</div>
+

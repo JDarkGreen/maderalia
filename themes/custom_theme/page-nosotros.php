@@ -87,7 +87,7 @@
 		</section> <!-- /.pageNosotros__content -->
 		
 		<!-- 2.- Sección Aptitudes -->
-		<section class="pageNosotros__aptitudes">
+		<section class="pageNosotros__aptitudes containerFlex">
 
 			<!-- 2.1 MISION -->
 			<?php if( isset($options['theme_mision']) && !empty($options['theme_mision']) ) : ?>

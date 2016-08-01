@@ -33,7 +33,7 @@
 		<div class="row">
 
 			<!-- ASIDE DE PRODUCTOS -->
-			<div class="col-md-4">
+			<div class="col-xs-12 col-md-4">
 				<!-- Sidebar -->
 				<aside class="pageCommon__sidebar">
 					<?php  
@@ -47,7 +47,7 @@
 					<?php
 						if( isset( $options['theme_social_fb_text'] ) && !empty( $options['theme_social_fb_text'] ) ) :
 					?>
-						<section class="container__facebook">
+						<section class="container__facebook hidden-xs-down">
 							<!-- Contebn -->
 							<div id="fb-root" class=""></div>
 
@@ -68,10 +68,14 @@
 					<?php endif; ?>					
 
 				</aside> <!-- /.pageCommon__sidebar -->
+
 			</div> <!-- /.col-md-4 -->	
+
+			<!-- Separador solo visible en mobile -->
+			<p class="hidden-sm-up clearfix"></p>
 		
 			<!-- INFORMACIÓN DE PRODUCTO -->
-			<div class="col-xs-8">
+			<div class="col-xs-12 col-xs-8">
 				
 				<!-- Título de Página --> <h2 class="pageSectionCommon__title pageSectionCommon__title--orange text-uppercase"> <?= __( $main_producto->post_title , LANG ); ?> </h2>
 

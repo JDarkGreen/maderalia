@@ -54,6 +54,9 @@ include( locate_template("partials/slider-home/slider-home.php") );
 				</aside> <!-- /.pageCommon__sidebar -->
 			</div> <!-- /.col-md-4 -->
 
+			<!-- Separador solo visible en mobile -->
+			<p class="hidden-sm-up"></p>
+
 			<!-- PRESENTACION DE PRODUCTOS Y SERVICIOS -->
 			<div class="col-md-8">
 
@@ -65,7 +68,7 @@ include( locate_template("partials/slider-home/slider-home.php") );
 							<!-- TITULO --> <h2 class="title-bg--green text-uppercase"> <strong> <?php _e("presentación" , LANG ); ?> </strong> </h2>
 							
 							<!-- TEXTO O CONTENIDO -->
-							<div class="container-text container-bg--gray">
+							<div class="container-text container-bg--gray text-justify text-md-left">
 								<?php  
 									#Extraer presentacion nosotros
 									echo isset($options['theme_meta_presentacion']) && !empty($options['theme_meta_presentacion']) ? apply_filters( "the_content" , $options['theme_meta_presentacion'] ) : "Actualizando Contenido"; 
@@ -146,13 +149,11 @@ include( locate_template("partials/slider-home/slider-home.php") );
 					</div> <!-- /.col-xs-12 -->
 
 				</div> <!-- /.row -->
-				
-				<!--  -->
 
 				<div class="row">
 
 					<!-- BOTONERA BLOG -->
-					<div class="col-xs-6">
+					<div class="col-xs-12 col-md-6">
 						
 						<article class="pageCommon__botonera containerRelative">
 						<!-- TITULO --> <h2 class="title-bg--lemon text-uppercase"> <strong> <?php _e("blog" , LANG ); ?> </strong> </h2>
@@ -177,7 +178,7 @@ include( locate_template("partials/slider-home/slider-home.php") );
 										<?php if( has_post_thumbnail($blog->ID) ) : 
 											echo get_the_post_thumbnail( $blog->ID, 'full' , array('class'=>'img-fluid center-block') );
 											else : 
-										?>  <img src="https://placeimg.com/619/325/any" alt="<?= $blog->post_title; ?>" class="img-fluid center-block" />
+										?>  <img src="http://placehold.it/619x325" alt="<?= $blog->post_title; ?>" class="img-fluid center-block" />
 										<?php endif; ?>
 									</figure> <!-- /fin imagen -->
 
@@ -185,7 +186,11 @@ include( locate_template("partials/slider-home/slider-home.php") );
 								<?php endif; ?>
 
 								<!-- Boton de ver más -->
-								<a href="" id="" class="btnCommon__show-more btnCommon__show-more--absolute">
+								<?php  
+									#Página especies
+									$page_blog = get_page_by_title("blog");
+								?>
+								<a href="<?= get_permalink( $page_blog->ID ); ?>" id="" class="btnCommon__show-more btnCommon__show-more--absolute">
 									<?php _e( "Ver más" , LANG ); ?>						
 								</a>
 								<!-- Limpiar floats --> <div class="clearfix"></div>
@@ -193,10 +198,10 @@ include( locate_template("partials/slider-home/slider-home.php") );
 							</div> <!-- /.container-bg--gray -->	
 
 						</article> <!-- /.pageCommon__botonera -->
-					</div> <!-- /.col-xs-6 -->
+					</div> <!-- /.col-xs-12 col-md-6 -->
 
 					<!-- BOTONERA ESPECIES -->
-					<div class="col-xs-6">
+					<div class="col-xs-12 col-md-6">
 
 						<article class="pageCommon__botonera containerRelative">
 						<!-- TITULO --> <h2 class="title-bg--lemon text-uppercase"> <strong> <?php _e("especies" , LANG ); ?> </strong> </h2>
@@ -209,7 +214,11 @@ include( locate_template("partials/slider-home/slider-home.php") );
 								</figure>
 
 								<!-- Boton de ver más -->
-								<a href="" id="" class="btnCommon__show-more btnCommon__show-more--absolute">
+								<?php  
+									#Página especies
+									$page_especies = get_page_by_title("especies");
+								?>
+								<a href="<?= get_permalink($page_especies->ID); ?>" id="" class="btnCommon__show-more btnCommon__show-more--absolute">
 									<?php _e( "Ver más" , LANG ); ?>						
 								</a>
 								<!-- Limpiar floats --> <div class="clearfix"></div>
@@ -217,7 +226,7 @@ include( locate_template("partials/slider-home/slider-home.php") );
 							</div> <!-- /.container-bg--gray -->	
 
 						</article> <!-- /.pageCommon__botonera -->						
-					</div>  <!-- /.col-xs-6 -->
+					</div>  <!-- /.col-xs-12 col-md-6 -->
 
 				</div> <!-- /.row -->
 			 	

@@ -31,7 +31,7 @@
 					<?php
 						if( isset( $options['theme_social_fb_text'] ) && !empty( $options['theme_social_fb_text'] ) ) :
 					?>
-						<section class="container__facebook">
+						<section class="container__facebook hidden-xs-down">
 							<!-- Contebn -->
 							<div id="fb-root" class=""></div>
 

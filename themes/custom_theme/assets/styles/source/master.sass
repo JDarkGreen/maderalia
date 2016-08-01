@@ -569,6 +569,7 @@ body,html
 .sectionProductList
 	+border-radius( 5px )
 	overflow: hidden
+	position: relative
 	//Título
 	h3 
 		background : $theme_brown
@@ -784,18 +785,14 @@ body,html
 
 //SECCIÓN APTITUDES
 .pageNosotros__aptitudes
-	display: table
-	width  : 100%
-//Misión
-.pageNosotros__mision
-	border-right: 18px solid 
+	justify-content: space-between
+	width          : 100%
 //ITEM  
 .pageNosotros__item
 	color  : white
-	display: table-cell 
 	margin : 0 1px
 	padding: 54px 38px
-	width  : 50%
+	width  : 49%
 	/* Subtitulos de item */
 	h3 
 		font-size: 22px
@@ -930,6 +927,12 @@ body,html
 
 
 /** [ SINGLE PRODUCTO ] **/
+.articleSingleProducto
+	img 
+		height   : auto 
+		margin   : 0 auto 
+		max-width: 100% 
+		width    : 100%
 
 /** [ contenedor de especies ] **/
 .sectionEspecies
@@ -945,10 +948,6 @@ body,html
 				color          : $theme_green_oscuro
 				font-size      : 13px 
 				text-decoration: none 
-
-
-
-
 
 
 
@@ -986,13 +985,12 @@ body,html
 			+opacity( 0.7 )
 
 /* Articulo de blog */
-.pageBlog__article
-	font-family: "Roboto Condensed" , sans-serif
-	/* Titulo */
-	h3 
-		font-size  : 30px 
-		font-weight: 600 
-
+.articleBlog
+	img 
+		height   : auto 
+		margin   : 0 auto 
+		max-width: 100%
+		width    : 100%
 
 /***************************************************************************************/
 /**--  PAGINA GALERÍA ----------------------------------------------------------------**/
@@ -1212,79 +1210,105 @@ body,html
 //MENOR A 640PX 
 @media ( max-width: 640px )
 
-	//$$$$ Slider de Post y preview de post $$$$
-	.pagePreview_post 
-		.articles-item 
-			figure
-				margin   : 0 auto 15px 
-				max-width: initial
-	
-	/* Contenedor SB SLIDER PARA MOBILE */
-	#sb-site
-		padding: 100px 0 0 0
+	/** [ SOBREESCRIBIR ESTILOS FLEXSLIDER ] **/
+	.flex-control-nav , .flex-direction-nav
+		display: none
 
-	// $$PAGINA COMUN BANNER DE PAGINA 
+	/** [ MAIN CONTENT ] **/
+	.mainContent
+		margin: 15px 10px
+
+	/** [ CONTAINER MENU - MMENU ] **/
+	#mmenu-container
+		padding: 65px 0 0
+
+	/** [ MAIN HEADER ] **/
+	.mainHeader	
+		left    : 0
+		padding : 5px 0 
+		position: fixed
+		right   : 0 
+		top     : 0 
+		z-index : 999
+		.logo 
+			margin   : 0 auto 
+			max-width: 40px 
+
+	/** [ MOBILE BUTTONS HEADER MENU ] **/
+	.btnMobile__menu
+		color          : $theme_green_oscuro
+		font-size      : 40px
+		line-height    : 1em
+		margin         : 6px 15px
+		text-decoration: none
+		+transition( all 900ms ease )
+		&:focus , &:hover 
+			color: $theme_green_oscuro
+		&:hover 
+			+rotateY( 360deg ) 
+
+	/** [ MAIN NAVIGATION MOBILE ] **/
+	.mainNavigationMobile
+		display: none
+		ul 
+			li 
+				+box-shadow( inset 0 0 0 0 transparent )
+				+transition( all 800ms ease-in-out )
+				//hover and active 
+				&:hover , &.current-menu-item , &.current_page_item , &.current-menu-this-item
+					+box-shadow( inset 260px 0 0 0 white )
+					a 
+						color: $theme_green_oscuro
+				a 
+					+transition( all 500ms ease-in-out )
+	
+	/** [ PÁGINAS COMUNES ] **/
+	//BANNERS PÁGINA
 	.pageCommon__banner 
 		figure
-			background-position: top center
+			height: 80px
 
-	// $$$ SIDEBAR COMUN
-	.sidebarCommon
-		background: white
-		margin    : 30px 5px
-		padding   : 10px
+	//LAYOUTS DE PÁGINAS
+	.pageWrapperLayout
+		padding: 0 15px
 
+	/** [ PÁGINA NOSOTROS ] **/
+	.pageNosotros__item
+		margin: 0 auto 10px 
+		width : 100%
 
-	// $$$ HEADER 
-	.mainHeader
-		background: white 
-		left      : 0
-		position  : fixed
-		right     : 0
-		z-index   : 99999
-		//Logo
-		.logo 
-			margin   : 0 25px 
-			max-width: 150px
-		//Íconos
-		.icon-header 
-			font-size: 40px
+	/** [ PÁGINA ESPECIES ] **/
+	.itemEspecie__preview
+		width: 45%
+
+	/** [ PÁGINA PROYECTOS ] **/
+	.articleProyecto__preview
+		height: 270px
+		width : 47%
+
+	/** [ PÁGINA BLOG ] **/
+	.articleBlog__preview 
+		figure 
+			img
+				max-height: none 
+				max-width : none 
 	
-	// $$$ MAIN NAVIGATION 
-	.mainNavigation 
-		margin: 30px auto
-		ul 
-			li
-				display: block
-				width  : 100%
-				a 
-					font-size: 20px
+	/** [ PÁGINA CONTACTO ] **/
+	.pageContacto__info
+		left    : 0 
+		position: relative
+		width   : 100%
+	.pageContacto__formulary
+		margin  : 20px auto 30px
+		position: relative
+		right   : inherit
+		width   : 100%
 
-		//Submenu		
-		ul.sub-menu
-			position: relative
-
-	// $$$$ PAGINA INICIO
-
-	/* Carousel Home */
-	.pageInicio__slider 
-		.carousel-inner 
-			.carousel-item
-				background-position: top right 
-				background-size    : cover 
-				height             : 400px
-				.carousel-caption
-					left     : 20%
-					max-width: 200px
-
-	// $$$ PÁGINA BLOG
-	.arrowCarouselBlog-prev
-		right: 15%
-
-	// $$$$ FOOTER $$ 
-
-	/* Footer Item */
+	//Mapa
+	#canvas-map
+		height: 300px
+	
+	/** [ MAIN FOOTER ] **/
 	.mainFooter__item
-		border-right: none
-		height      : auto
-		margin      : 0 auto 30px
+		border: none
+		height: auto 

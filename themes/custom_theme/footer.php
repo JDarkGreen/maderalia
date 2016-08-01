@@ -13,7 +13,7 @@ $options = get_option( 'theme_settings' );
 			<div class="row">
 				
 				<!-- ITEM FOOTER -->
-				<div class="col-md-4">
+				<div class="col-xs-12 col-md-4">
 					<article class="mainFooter__item">
 						<!-- Título --> 
 						<h4 class="text-uppercase"><?php _e("maderalia perú" , LANG ); ?></h4>
@@ -26,10 +26,10 @@ $options = get_option( 'theme_settings' );
 						
 					</article> <!-- /.mainFooter__item -->
 
-				</div> <!-- /.col-md-4 -->	
+				</div> <!-- /.col-xs-12 col-md-4 -->	
 
 				<!-- ITEM FOOTER -->
-				<div class="col-md-4">
+				<div class="col-xs-12 col-md-4">
 					<article class="mainFooter__item text-xs-center">
 						<!-- Título --> 
 						<h4 class=""><?php _e("Redes Sociales" , LANG ); ?></h4>
@@ -63,11 +63,11 @@ $options = get_option( 'theme_settings' );
 							<?php endif; ?>
 						</ul> <!-- /.sectionSocialLinks -->
 					</article> <!-- /.mainFooter__item -->
-				</div> <!-- /.col-md-4 -->
+				</div> <!-- /.col-xs-12 col-md-4 -->
 
 				<!-- ITEM FOOTER -->
-				<div class="col-md-4">
-					<article class="mainFooter__item text-xs-right">
+				<div class="col-xs-12 col-md-4">
+					<article class="mainFooter__item text-xs-center text-md-right">
 						<!-- Título --> 
 						<h4 class=""><?php _e("Más Información" , LANG ); ?></h4>
 						<!-- Texto -->
@@ -97,5 +97,9 @@ $options = get_option( 'theme_settings' );
 	<?php wp_footer(); ?>
 
 	<script> var url = "<?= THEMEROOT ?>"; </script>
+
+	<!-- Fin mmenu container -->
+	</div> <!-- /. -->
+
 </body>
 </html>

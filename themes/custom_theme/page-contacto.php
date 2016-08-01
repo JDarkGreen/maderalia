@@ -19,15 +19,15 @@
 
 		<!-- Sección de Contenido  -->
 		<section class="pageContacto__content containerRelative">
+			
+			<!-- MAPA -->
+			<div id="canvas-map"></div>
 
 			<!-- Información de Contacto -->
 			<div class="pageContacto__info">
 				<?= isset($options['theme_contact_more_info']) && !empty($options['theme_contact_more_info']) ? $options['theme_contact_more_info'] : "Actualizando Información"; ?>
 			</div> <!-- /.pageContacto__info -->
 			
-			<!-- MAPA -->
-			<div id="canvas-map"></div>
-
 			<!-- Formulario de Contacto -->
 			<section class="pageContacto__formulary">
 				<!-- Titulo  -->

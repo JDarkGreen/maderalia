@@ -25,7 +25,7 @@ include( locate_template("partials/common/banner-common-pages.php") );
 		<div class="row">
 
 			<!-- ASIDE DE PRODUCTOS -->
-			<div class="col-md-4">
+			<div class="col-xs-12 col-md-4">
 				<!-- Sidebar -->
 				<aside class="pageCommon__sidebar">
 					<?php  
@@ -37,7 +37,7 @@ include( locate_template("partials/common/banner-common-pages.php") );
 					<?php
 						if( isset( $options['theme_social_fb_text'] ) && !empty( $options['theme_social_fb_text'] ) ) :
 					?>
-						<section class="container__facebook">
+						<section class="container__facebook hidden-xs-down">
 							<!-- Contebn -->
 							<div id="fb-root" class=""></div>
 
@@ -61,7 +61,7 @@ include( locate_template("partials/common/banner-common-pages.php") );
 			</div> <!-- /.col-md-4 -->	
 		
 			<!-- INFORMACIÓN DE ESPECIE -->
-			<div class="col-md-8">
+			<div class="col-xs-12 col-md-8">
 				
 				<!-- Título de Página --> <h2 class="pageSectionCommon__title pageSectionCommon__title--orange text-uppercase"> <?= __(  "especies" , LANG ); ?> </h2>
 
@@ -72,7 +72,7 @@ include( locate_template("partials/common/banner-common-pages.php") );
 					<div class="row">
 						
 						<!-- IMAGEN -->
-						<div class="col-xs-9">
+						<div class="col-xs-12 col-md-9">
 							<figure>
 								<?php 
 									if( has_post_thumbnail( $post->ID ) ) : 
@@ -83,7 +83,7 @@ include( locate_template("partials/common/banner-common-pages.php") );
 						</div> <!-- /.col-xs-9 -->
 
 						<!-- TEXTO O CONTENIDO -->
-						<div class="col-xs-3">
+						<div class="col-xs-12 col-md-3">
 							<div class="articleSingleEspecie__content">
 								
 								<!-- Titulo -->
