@@ -48,7 +48,7 @@
 	<!-- Primera sección Contenedor de Información y Pedido -->
 	<?php  
 		# Extraemos el logo de las opciones del tema
-		$logo_theme = isset($options['theme_meta_logo_text']) && !empty($options['theme_meta_logo_text']) ? $options['theme_meta_logo_text'] : IMAGES . 'logo.png';
+		$logo_theme = isset($options['theme_meta_logo_text']) && !empty($options['theme_meta_logo_text']) ? $options['theme_meta_logo_text'] : IMAGES . '/logo.png';
 	?>
 
 	<!-- Contenedor 1.ra sección Información Header -->
