@@ -32,7 +32,7 @@ if ( $the_query->have_posts() ) :
 	    			endif;
 	    		?>
 	    		<!-- Caption o información -->
-	    		<p class="flex-caption text-xs-center">Adventurer Cheesecake Brownie</p>
+	    		<p class="flex-caption text-xs-center"><?= get_the_content(); ?></p>
 	    	</li>
     	<?php endwhile; ?>
   	</ul> <!-- /.slides -->

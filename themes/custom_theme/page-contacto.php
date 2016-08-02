@@ -21,48 +21,99 @@
 		<section class="pageContacto__content containerRelative">
 			
 			<!-- MAPA -->
-			<div id="canvas-map"></div>
+			<!--div id="canvas-map"></div-->
 
-			<!-- Información de Contacto -->
-			<div class="pageContacto__info">
-				<?= isset($options['theme_contact_more_info']) && !empty($options['theme_contact_more_info']) ? $options['theme_contact_more_info'] : "Actualizando Información"; ?>
-			</div> <!-- /.pageContacto__info -->
-			
-			<!-- Formulario de Contacto -->
-			<section class="pageContacto__formulary">
-				<!-- Titulo  -->
-				<h2><?= __( "Formulario de Contacto" ,"LANG" ); ?></h2>
+			<div class="row">
+				
+				<!-- Información de Contacto -->
+				<div class="col-xs-12 col-md-6">
+					<section class="pageContacto__item pageContacto__info">
 
-				<!-- Formulario -->
-				<form id="form-contacto" method="post">
-
-					<!-- Nombre -->
-					<input id="input_name" type="text" class="text-form" name="txt_name" required="" placeholder="Nombre Completo">
+						<!-- Título -->
+						<h2 class="text-uppercase"><?php _e("atención al cliente" ); ?></h2>
 					
-					<!-- Direccion -->
-					<input id="input_address" type="text" class="text-form" name="txt_direc" required="" placeholder="Dirección">
-					
-					<!-- Telefono -->
-					<input id="input_phone" type="text" class="text-form" name="txt_telf" required="" placeholder="Teléfono">
-					
-					<!-- Email -->
-					<input id="input_email" type="email" class="text-form" name="txt_correo" placeholder="Correo electronico" data-parsley-trigger="change" required="" data-parsley-type-message="Escribe un email válido">
-					
-					<!-- Consulta -->
-					<textarea id="input_message" name="text_area" class="text_area" cols="" rows="" placeholder="Consulta.."></textarea>
-					
-					<input type="submit" name="btn_enviar" class="btnCommon__show-more pull-xs-right">
+						<!-- Lista de Datos -->
+						<ul class="pageContacto__list-data">
 
-					<!-- Limpiar floats --> <div class="clearfix"></div>
+							<!-- Telefono -->
+							<?php if( isset($options['theme_phone_text']) && !empty($options['theme_phone_text']) ) : ?>
+								<li> <!-- Icono --> <i class="fa fa-phone " aria-hidden="true"></i>
+								<p>
+								<?php 
+									#control 
+									$control = 0;
+									#teléfonos
+									$phones  = $options['theme_phone_text'];
+									#recorrido
+									foreach( $phones as $phone ) : 
+										#separador
+										$separator = $control === count($phones) - 1 ? "" : " - ";
+										echo $phone . $separator;
+									$control++; endforeach; 
+								?>
+								<p>
+								</li>
+							<?php endif; ?>
 
-				</form>
+							<!-- Email -->
+							<?php if( isset($options['theme_email_text']) && !empty($options['theme_email_text']) ) : ?>
+								<li> <!-- Icono --> <i class="fa fa-envelope" aria-hidden="true"></i>
+									<p class="text-green"><?= $options['theme_email_text']; ?> </p>
+								</li>
+							<?php endif; ?>
 
-			</section> <!-- /. -->
+							<!-- Ubicación -->
+							<?php if( isset($options['theme_address_text']) && !empty($options['theme_address_text']) ) : ?>
+								<li> <!-- Icono --> <i class="fa fa-map-marker" aria-hidden="true"></i>
+								<?= $options['theme_address_text']; ?> 
+								</li>
+							<?php endif; ?>								
 
+						</ul> <!-- /.pageContacto__list-data -->
+
+						<!-- Imagen Contacto -->
+						<figure>
+							<img src="<?= IMAGES ?>/contact/image_contacto_maderalia.jpg" alt="maderalia_contacto" class="img-fluid">
+						</figure>
+
+					</section> <!-- /.pageContacto__item pageContacto__info -->
+				</div> <!-- /. -->
+				
+				<!-- Formulario de Contacto -->
+				<div class="col-xs-12 col-md-6">
+					<section class="pageContacto__item pageContacto__formulary">
+						<!-- Titulo  -->
+						<h2 class="text-uppercase"><?= __( "Formulario de Contacto" ,"LANG" ); ?></h2>
+
+						<!-- Formulario -->
+						<form id="form-contacto" method="post">
+
+							<!-- Nombre -->
+							<input id="input_name" type="text" class="text-form" name="txt_name" required="" placeholder="Nombre Completo">
+							
+							<!-- Direccion -->
+							<input id="input_address" type="text" class="text-form" name="txt_direc" required="" placeholder="Dirección">
+							
+							<!-- Telefono -->
+							<input id="input_phone" type="text" class="text-form" name="txt_telf" required="" placeholder="Teléfono">
+							
+							<!-- Email -->
+							<input id="input_email" type="email" class="text-form" name="txt_correo" placeholder="Correo electronico" data-parsley-trigger="change" required="" data-parsley-type-message="Escribe un email válido">
+							
+							<!-- Consulta -->
+							<textarea id="input_message" name="text_area" class="text_area" cols="" rows="" placeholder="Su mensaje"></textarea>
+							
+							<input type="submit" name="btn_enviar" class="btnCommon__show-more">
+
+							<!-- Limpiar floats --> <div class="clearfix"></div>
+
+						</form>						
+					</section> <!-- /.pageContacto__item pageContacto__formulary -->
+				</div> <!-- /. -->
+
+			</div> <!-- /.row -->
 
 		</section> <!-- /pageContacto__content -->
-
-
 
 	</section> <!-- /.pageWrapper__content -->
 
