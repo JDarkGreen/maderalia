@@ -75,7 +75,7 @@
 			<p class="hidden-sm-up clearfix"></p>
 		
 			<!-- INFORMACIÓN DE PRODUCTO -->
-			<div class="col-xs-12 col-xs-8">
+			<div class="col-xs-12 col-md-8">
 				
 				<!-- Título de Página --> <h2 class="pageSectionCommon__title pageSectionCommon__title--orange text-uppercase"> <?= __( $main_producto->post_title , LANG ); ?> </h2>
 

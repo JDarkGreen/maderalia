@@ -52,8 +52,32 @@ function custom_social_yt_render()
 /**
 <?php add_settings_section( $id, $title, $callback, $page ); ?>
 * SECCION EMPRESA
+**/
+/**
+* SECCION RUC
+**/
+add_settings_section( PREFIX."_themePage_section_ruc" , __( 'Personalizar Ruc:' , 'LANG' ), 'custom_settings_section_ruc_callback', 'customThemePageEmpresa' );
 
-//Inputs
+function custom_settings_section_ruc_callback()
+{ 
+	echo __( 'Coloca RUC correspondiente', 'LANG' );
+}
+
+//DIRECCIÓN
+add_settings_field( 'theme_ruc_text', __( 'Dirección Empresa:', 'LANG' ), 'custom_ruc_render', 'customThemePageEmpresa', PREFIX."_themePage_section_ruc" );
+//Renderizado 
+function custom_ruc_render() 
+{ 
+	$options = get_option( 'theme_settings' ); 
+	?>
+	<textarea name="theme_settings[theme_ruc_text]" id="" style="width:350px;height:120px;max-height:120px;"><?= !empty($options['theme_ruc_text']) ? $options['theme_ruc_text'] : "" ; ?> </textarea>
+	<?php
+}
+
+
+
+/**
+//TELEFONOS
 add_settings_field( $id, $title, $callback, $page, $section, $args );
 **/
 add_settings_section( PREFIX."_themePage_section_phone" , __( 'Personalizar Teléfonos:' , 'LANG' ), 'custom_settings_section_phone_callback', 'customThemePageEmpresa' );

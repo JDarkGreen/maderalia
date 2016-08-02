@@ -35,6 +35,13 @@
 						<!-- Lista de Datos -->
 						<ul class="pageContacto__list-data">
 
+							<!-- Email -->
+							<?php if( isset($options['theme_ruc_text']) && !empty($options['theme_ruc_text']) ) : ?>
+								<li> <!-- Icono --> <i class="fa fa-book" aria-hidden="true"></i>
+									<p class="text-green"><?= $options['theme_ruc_text']; ?> </p>
+								</li>
+							<?php endif; ?>
+
 							<!-- Telefono -->
 							<?php if( isset($options['theme_phone_text']) && !empty($options['theme_phone_text']) ) : ?>
 								<li> <!-- Icono --> <i class="fa fa-phone " aria-hidden="true"></i>
@@ -44,10 +51,11 @@
 									$control = 0;
 									#teléfonos
 									$phones  = $options['theme_phone_text'];
+									$phones  = array_filter( $phones );
 									#recorrido
 									foreach( $phones as $phone ) : 
 										#separador
-										$separator = $control === count($phones) - 1 ? "" : " - ";
+										$separator = $control == count($phones) - 1 ? "" : " - ";
 										echo $phone . $separator;
 									$control++; endforeach; 
 								?>
@@ -60,7 +68,7 @@
 								<li> <!-- Icono --> <i class="fa fa-envelope" aria-hidden="true"></i>
 									<p class="text-green"><?= $options['theme_email_text']; ?> </p>
 								</li>
-							<?php endif; ?>
+							<?php endif; ?>							
 
 							<!-- Ubicación -->
 							<?php if( isset($options['theme_address_text']) && !empty($options['theme_address_text']) ) : ?>

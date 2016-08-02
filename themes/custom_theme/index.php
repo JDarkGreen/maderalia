@@ -177,24 +177,29 @@ include( locate_template("partials/slider-home/slider-home.php") );
 									if( !empty( $blog ) ) :
 								?> <!-- ARTICLE BLOG  -->
 								<article class="itemArticlePreview">
-									<!-- Imagen -->
-									<figure> 
-										<?php if( has_post_thumbnail($blog->ID) ) : 
-											echo get_the_post_thumbnail( $blog->ID, 'full' , array('class'=>'img-fluid center-block') );
-											else : 
-										?>  <img src="http://placehold.it/619x325" alt="<?= $blog->post_title; ?>" class="img-fluid center-block" />
-										<?php endif; ?>
-									</figure> <!-- /fin imagen -->
+
+									<?php  
+									#Página especies
+									$page_blog = get_page_by_title("blog");
+									?>
+									
+									<a href="<?= get_permalink( $page_blog->ID ); ?>" >
+										<!-- Imagen -->
+										<figure> 
+											<?php if( has_post_thumbnail($blog->ID) ) : 
+											?>
+												<img src="<?= IMAGES ?>/blog-img-especies-maderalia.jpg" alt="blog-img-especies-maderalia" class="img-fluid center-block" />
+											<? else : ?>  
+												<img src="<?= IMAGES ?>/blog-img-especies-maderalia.jpg" alt="blog-img-especies-maderalia" class="img-fluid center-block" />
+											<?php endif; ?>
+										</figure> <!-- /fin imagen -->
+									</a> <!-- /. -->
 
 								</article> <!-- /.itemArticlePreview -->
 								<?php endif; ?>
 
 								<!-- Boton de ver más -->
-								<?php  
-									#Página especies
-									$page_blog = get_page_by_title("blog");
-								?>
-								<a href="<?= get_permalink( $page_blog->ID ); ?>" id="" class="btnCommon__show-more btnCommon__show-more--absolute">
+								<a href="<?= get_permalink( $page_blog->ID ); ?>" class="btnCommon__show-more btnCommon__show-more--absolute">
 									<?php _e( "Ver más" , LANG ); ?>						
 								</a>
 								<!-- Limpiar floats --> <div class="clearfix"></div>
@@ -209,20 +214,23 @@ include( locate_template("partials/slider-home/slider-home.php") );
 
 						<article class="pageCommon__botonera containerRelative">
 						<!-- TITULO --> <h2 class="title-bg--lemon text-uppercase"> <strong> <?php _e("especies" , LANG ); ?> </strong> </h2>
+
+							<?php  
+							#Página especies
+							$page_especies = get_page_by_title("especies");
+							?>
 						
 							<!-- TEXTO O CONTENIDO -->
 							<div class="container-text">
-								<!-- Imagen -->
-								<figure>
-									<img src="<?= IMAGES ?>/img-especies-maderalia.jpg" alt="especies-maderalia-" class="img-fluid center-block" />
-								</figure>
+								<a href="<?= get_permalink($page_especies->ID); ?>">
+									<!-- Imagen -->
+									<figure>
+										<img src="<?= IMAGES ?>/img-especies-maderalia.jpg" alt="especies-maderalia-" class="img-fluid center-block" />
+									</figure>
+								</a> <!-- /. -->
 
 								<!-- Boton de ver más -->
-								<?php  
-									#Página especies
-									$page_especies = get_page_by_title("especies");
-								?>
-								<a href="<?= get_permalink($page_especies->ID); ?>" id="" class="btnCommon__show-more btnCommon__show-more--absolute">
+								<a href="<?= get_permalink($page_especies->ID); ?>" class="btnCommon__show-more btnCommon__show-more--absolute">
 									<?php _e( "Ver más" , LANG ); ?>						
 								</a>
 								<!-- Limpiar floats --> <div class="clearfix"></div>
