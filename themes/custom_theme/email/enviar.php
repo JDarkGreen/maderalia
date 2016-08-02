@@ -11,7 +11,7 @@
 
 
 	//Email A quien se le rinde cuentas
-	$webmaster_email1 = "";
+	$webmaster_email1 = "ventas@maderaliaperu.com";
 	$webmaster_email2 = "jgomez@ingenioart.com";
 
 	include("class.phpmailer.php");

@@ -16,7 +16,7 @@
 		<tr>
 			<td align="center" bgcolor="#007E4F" style="padding: 20px 0 20px 0;">
 				<a href="http://iuigv.com/maderalia" target="_blank" style="display:inline-block">
-					<img src="cid:logo" alt="Mail Tempkate" width="130" height="137" style="display: block;" />
+					<img src="images/logo.png" alt="Mail Tempkate" width="130" height="137" style="display: block;" />
 				</a> 
 			</td>
 		</tr>	
