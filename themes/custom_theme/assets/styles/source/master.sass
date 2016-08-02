@@ -110,6 +110,22 @@ body,html
 /**-- SECCIONES - PAGINAS EN COMUN  --------------------------------------------------**/
 /***************************************************************************************/
 
+/** [ ALINEACIONES ] **/
+.aligncenter
+	display: block
+	margin : 0 auto
+
+.alignright	
+	float : right
+	margin: 0 0 1em 1em
+
+.alignleft	
+	float : left
+	margin: 0 1em 1em 0
+
+img.aligncenter, img.alignright, img.alignleft	
+	border: 3px solid transparent
+
 /* POSICIONES */
 .containerRelative
 	position: relative
@@ -987,8 +1003,8 @@ body,html
 /* Articulo de blog */
 .articleBlog
 	img 
+		display  : block 
 		height   : auto 
-		margin   : 0 auto 
 		max-width: 100%
 		width    : auto
 

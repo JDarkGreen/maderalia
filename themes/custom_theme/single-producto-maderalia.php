@@ -75,13 +75,15 @@ include( locate_template("partials/common/banner-common-pages.php") );
 					<figure>
 						<?php 
 							if( has_post_thumbnail( $post->ID ) ) : 
-								echo get_the_post_thumbnail( $post->ID , 'full' , array('class'=>'img-fluid imgNotBlur') );
+								echo get_the_post_thumbnail( $post->ID , 'full' , array('class'=>'img-fluid imgNotBlur center-block') );
 							endif;
 						?>
 					</figure>
 
 					<!-- Párrafo -->
-					<?= apply_filters("the_content" , $post->post_content ); ?>
+					<?= apply_filters( "the_content" , $post->post_content ); ?>
+
+					<!-- Limpiar floats --> <div class="clearfix"></div>
 
 					<!-- SECCIÓN DISPONIBILIDAD ESPECIES -->
 					<section class="sectionEspecies">
