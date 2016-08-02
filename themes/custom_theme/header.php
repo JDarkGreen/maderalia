@@ -134,7 +134,7 @@ con librería mmenu -->
 </header> <!-- /.mainHeader hidden-sm-up -->
 
 <!-- Menú oculto de navegación lateral izquierda -->
-<nav id="js-menu-nav" class="mainNavigationMobile">
+<nav id="js-menu-nav" class="mainNavigationMobile hidden-sm-up">
 	<!-- Menu de Navegacion Izquierda -->
 	<?php wp_nav_menu(
 		array(
@@ -145,7 +145,7 @@ con librería mmenu -->
 </nav>
 
 <!-- Menú oculto de navegación lateral derecha -->
-<div id="js-menu-productos" class="mainNavigationMobile">
+<div id="js-menu-productos" class="mainNavigationMobile hidden-sm-up">
 
 	<ul>
 	<?php  

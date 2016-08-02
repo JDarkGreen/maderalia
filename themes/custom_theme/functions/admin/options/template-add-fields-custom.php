@@ -403,8 +403,54 @@ function custom_text_markup_map_render()
 }
 
 
+//IMAGEN CONTACTO SECCION
+add_settings_section( PREFIX."_themePage_contacto_image" , __( 'Personalizar Contacto Imágen:' , 'LANG' ), 'custom_settings_contacto_image_callback', 'customThemePageContactoMapa' );
+
+function custom_settings_contacto_image_callback()
+{ 
+	echo __( 'Personaliza imágen contacto:', 'LANG' );
+}
+
+//AGREGAR CAMPO DE IMAGEN
+add_settings_field( 'theme_img_contact', __( 'Imágen Contacto:', 'LANG' ), 'custom_image_contact_render', 'customThemePageContactoMapa', PREFIX."_themePage_contacto_image" );
+//Renderizado 
+function custom_image_contact_render() 
+{ 
+	$options = get_option( 'theme_settings' ); ?>
+	
+    <!-- Contenedor de Imagen -->
+    <section class="customize-img-container">
+
+        <!-- Input oculto guarda imagen -->
+        <input type="hidden" id="theme_img_contact" class="" name="theme_settings[theme_img_contact]" size="25" value="<?= !empty($options['theme_img_contact']) ? $options['theme_img_contact'] : "" ; ?>" />
+
+        <!-- Contenedor Agregar Imagen Previa -->
+        <div class="container-preview">
+            <?php if( !empty($options['theme_img_contact']) && !is_null($options['theme_img_contact']) ) : ?>
+            <img src="<?= $options['theme_img_contact']; ?>" style="width:100px; height:100px;" />
+            <?php endif ?>
+        </div> 
+        
+        <!-- Botón agregar imágen --> 
+        <br/><button class="js-add-custom-img button button-primary" data-input="theme_img_contact" >
+            <?php empty($options['theme_img_contact']) || is_null($options['theme_img_contact']) ? _e( 'Agregar Imagen' , LANG ) : _e( 'Cambiar Imagen' , LANG ) ; ?>
+        </button> 
+
+        <!-- Botón remover Imagen Oculto -->
+        <button class="js-remove-custom-img button button-primary" data-input="theme_img_contact">
+            <?php _e( 'Remover Imagen' , LANG ); ?>
+        </button>
+
+        <!-- Descripcion -->
+        <br/><p class="description"><?php _e('Subir una imagen para este campo'); ?></p>
+
+    </section> <!-- /.customize-img-container -->
+		
+	<?php
+}
+
 //MAS INFORMACION CONTACTO
-add_settings_field( 'theme_contact_more_info', __( 'Información Contacto:', 'LANG' ), 'custom_contact_more_render', 'customThemePageContactoMapa', PREFIX."_themePage_contacto" );
+/*add_settings_field( 'theme_contact_more_info', __( 'Información Contacto:', 'LANG' ), 'custom_contact_more_render', 'customThemePageContactoMapa', PREFIX."_themePage_contacto" );
 //Renderizado 
 function custom_contact_more_render() 
 { 
@@ -421,4 +467,4 @@ function custom_contact_more_render()
 	$text_contact = isset($options['theme_contact_more_info']) ? $options['theme_contact_more_info'] : "";
 
 	wp_editor( htmlspecialchars_decode( $text_contact ), 'theme_contact_more_info' , $option_content );
-}
+}*/

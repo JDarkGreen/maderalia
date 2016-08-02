@@ -38,7 +38,9 @@
 							<!-- Email -->
 							<?php if( isset($options['theme_ruc_text']) && !empty($options['theme_ruc_text']) ) : ?>
 								<li> <!-- Icono --> <i class="fa fa-book" aria-hidden="true"></i>
-									<p class="text-green"><?= $options['theme_ruc_text']; ?> </p>
+									<div class="text-green">
+										<?= apply_filters("the_content" , $options['theme_ruc_text'] ); ?>
+									</div>
 								</li>
 							<?php endif; ?>
 
@@ -73,7 +75,9 @@
 							<!-- Ubicación -->
 							<?php if( isset($options['theme_address_text']) && !empty($options['theme_address_text']) ) : ?>
 								<li> <!-- Icono --> <i class="fa fa-map-marker" aria-hidden="true"></i>
-								<?= $options['theme_address_text']; ?> 
+									<div class="">
+										<?= apply_filters("the_content" , $options['theme_address_text'] ); ?>
+									</div>
 								</li>
 							<?php endif; ?>								
 
@@ -81,7 +85,11 @@
 
 						<!-- Imagen Contacto -->
 						<figure>
-							<img src="<?= IMAGES ?>/contact/image_contacto_maderalia.jpg" alt="maderalia_contacto" class="img-fluid">
+							<?php  
+								#Extraer Imágen Campo contacto
+								$image_contacto = isset( $options['theme_img_contact'] ) && !empty( $options['theme_img_contact']) ? $options['theme_img_contact'] : IMAGES . "/contact/image_contacto_maderalia.jpg";
+							?>
+							<img src="<?= $image_contacto; ?>" alt="maderalia_contacto" class="img-fluid">
 						</figure>
 
 					</section> <!-- /.pageContacto__item pageContacto__info -->
