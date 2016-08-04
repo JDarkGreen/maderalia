@@ -55,7 +55,7 @@ function create_post_type(){
 		'menu_icon'   => 'dashicons-exerpt-view',
 	);	
 
-	/*|>>>>>>>>>>>>>>>>>>>> SERVICIOS  <<<<<<<<<<<<<<<<<<<<|*/
+	/*|>>>>>>>>>>>>>>>>>>>> PRODUCTOS  Y SERV  <<<<<<<<<<<<<<<<<<<<|*/
 	
 	$labels3 = array(
 		'name'               => __('Productos'),
@@ -78,6 +78,7 @@ function create_post_type(){
 		'show_ui' => true,
 		'taxonomies'  => array( 'producto_category' , 'post_tag' ),
 		'menu_icon'   => 'dashicons-cart',
+		'rewrite'     => array('slug' => 'acabados-madera'),
 	);
 
 	/*|>>>>>>>>>>>>>>>>>>>> ESPECIES  <<<<<<<<<<<<<<<<<<<<|*/
@@ -100,9 +101,10 @@ function create_post_type(){
 		'public'      => true,
 		'hierachical' => false,
 		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes' ),
-		'show_ui' => true,
+		'show_ui'     => true,
 		'taxonomies'  => array( 'post_tag' ),
 		'menu_icon'   => 'dashicons-index-card',
+		'rewrite'     => array('slug' => 'especies-madera'),
 	);	
 
 
@@ -133,7 +135,7 @@ function create_post_type(){
 
 	/*|>>>>>>>>>>>>>>>>>>>> REGISTRAR  <<<<<<<<<<<<<<<<<<<<|*/
 	register_post_type( 'slider-home' , $args  );
-	register_post_type( 'servicio' , $args2 );
+	#register_post_type( 'servicio' , $args2 );
 	register_post_type( 'producto-maderalia' , $args3 );
 	register_post_type( 'especie-maderalia' , $args4 );
 	register_post_type( 'proyecto-maderalia' , $args5 );
