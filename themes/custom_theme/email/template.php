@@ -15,8 +15,8 @@
 
 		<tr>
 			<td align="center" bgcolor="#007E4F" style="padding: 20px 0 20px 0;">
-				<a href="http://iuigv.com/maderalia" target="_blank" style="display:inline-block">
-					<img src="images/logo.png" alt="Mail Tempkate" width="130" height="137" style="display: block;" />
+				<a href="http://maderaliaperu.com/" target="_blank" style="display:inline-block">
+					<img src="http://maderaliaperu.com/wp-content/uploads/2016/08/logo.png" alt="Mail Template" width="130" height="137" style="display: block;" />
 				</a> 
 			</td>
 		</tr>	

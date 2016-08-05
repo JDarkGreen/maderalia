@@ -11,13 +11,14 @@
 
 
 	//Email A quien se le rinde cuentas
-	$webmaster_email1 = "ventas@maderaliaperu.com";
-	$webmaster_email2 = "jgomez@ingenioart.com";
+	$webmaster_email1 = "";
+	$webmaster_email2 = "ventas@maderaliaperu.com";
 
 	include("class.phpmailer.php");
  	include("class.smtp.php");
 
 	$mail = new PHPMailer();
+	$mail->CharSet = 'UTF-8';
 
 	/*$mail->IsSMTP(); // send via SMTP
 	$mail->SMTPSecure = 'ssl'; 
@@ -34,10 +35,9 @@
 
 	$mail->IsHTML(true); // send as HTML
 
-	$mail->Subject = "Consulta - Mensaje Formulario: Asunto - " . $subject;
+	// Activo condificacción utf-8
 
-	//Adjuntar Logo Imagen
-	$mail->AddEmbeddedImage("images\logo.png", "logo", "logo.png");
+	$mail->Subject = "Formulario Web Maderalia";
 
 	// Activar el almacenamiento en búfer de la salida
 	ob_start();
@@ -50,6 +50,7 @@
 
 	//Customizar el mensaje
 	$mail->Body = $template_email;
+
 
 	if($mail->Send()){
 		echo "Su mensaje a sido enviado con éxito, estaremos respondiendo a la brevedad."; 
