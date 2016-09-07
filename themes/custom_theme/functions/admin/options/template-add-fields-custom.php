@@ -477,7 +477,8 @@ add_settings_section( PREFIX."_themePage_cuentas" , __( 'Personalizar Cuenta:' ,
 
 function custom_settings_cuenta_callback()
 { 
-	echo __( 'Personaliza los campos correspondientes:', 'LANG' );
+	echo __( 'No te olvides de activar la opción de PERMITIR APLICACIONES MENOS SEGURAS', 'LANG' );
+	echo "<a href='https://www.google.com/settings/security/lesssecureapps' target='_blank'> desde aquí </a>";
 }
 
 //EMAIL
@@ -501,6 +502,19 @@ function custom_cuenta_password_render()
 
 	<p class="description"><?= __( "Escribe Password de Gmail" , "LANG" ); ?></p>
 	<input type='password' name='theme_settings[theme_email_password]' value='<?= !empty($options['theme_email_password']) ? $options['theme_email_password'] : "" ; ?>' />
+	<?php
+}
+
+
+//COPIAS 
+add_settings_field( 'theme_email_copias', __( 'Copias adjuntas:', 'LANG' ), 'custom_cuenta_copias_render', 'customThemePageCuentas', PREFIX."_themePage_cuentas"  );
+//Renderizado 
+function custom_cuenta_copias_render() 
+{ 
+	$options = get_option( 'theme_settings' ); ?>
+	<p class="description"><?= __( "Escribe correos adjuntos , separados por comas !importante las comas." , "LANG" ); ?></p>
+
+	<textarea name="theme_settings[theme_email_copias]" id="" style="width:400px;height:200px;max-height:200px;"><?= !empty($options['theme_email_copias']) ? $options['theme_email_copias'] : "" ; ?> </textarea>
 	<?php
 }
 

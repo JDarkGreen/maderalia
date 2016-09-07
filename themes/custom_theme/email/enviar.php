@@ -10,6 +10,12 @@
 	#Password
 	$admin_email_password = isset($options['theme_email_password']) && !empty($options['theme_email_password']) ? $options['theme_email_password'] : '';
 
+	#Copias
+	$admin_email_copias = isset($options['theme_email_copias']) && !empty($options['theme_email_copias']) ? $options['theme_email_copias'] : '';
+	$admin_email_copias = explode( "," , trim( $admin_email_copias ) );
+
+	#var_dump($admin_email_copias);exit;
+
 
 	//Obtenemos las valores enviados
 	$from    = $_POST['email'];
@@ -22,10 +28,7 @@
 
 
 	//Email A quien se le rinde cuentas
-	#$webmaster_email1 = "jgomez@ingenioart.com";
-	$webmaster_email1 = "ventas@maderaliaperu.com";
-	$webmaster_email2 = "jgomez@ingenioart.com";
-	$webmaster_email3 = "webmaster@ingenioart.com";
+	$webmaster_email1 = $admin_email;
 
 	include("class.phpmailer.php");
  	include("class.smtp.php");
@@ -44,8 +47,17 @@
 	$mail->FromName = $name;
 
 	$mail->AddAddress( $webmaster_email1 );
-	#$mail->AddAddress( $webmaster_email2 );
-	#$mail->AddAddress( $webmaster_email3 );
+
+	#Enviar las copias
+	foreach( $admin_email_copias as $copia ):
+
+		#Quitar espacios en blanco
+		$copia = str_replace(' ', '', $copia);
+
+		$mail->AddAddress( $copia );
+
+	endforeach;
+
 
 	$mail->IsHTML(true); // send as HTML
 
