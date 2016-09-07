@@ -10,6 +10,7 @@
 	padding   : 10px;
 	background: rgba( 0 , 128 , 0 , .7 );
 	transition: all 500ms ease-in;
+	margin: 0 0 10px;
 }
 .tabs__menu li:hover , .tabs__menu li.active {
 	background    : rgba( 0 , 128 , 0 , 1 );

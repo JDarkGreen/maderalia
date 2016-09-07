@@ -468,3 +468,39 @@ function custom_contact_more_render()
 
 	wp_editor( htmlspecialchars_decode( $text_contact ), 'theme_contact_more_info' , $option_content );
 }*/
+
+
+/**
+* PERSONALIZAR CUENTAS
+**/
+add_settings_section( PREFIX."_themePage_cuentas" , __( 'Personalizar Cuenta:' , 'LANG' ), 'custom_settings_cuenta_callback', 'customThemePageCuentas' );
+
+function custom_settings_cuenta_callback()
+{ 
+	echo __( 'Personaliza los campos correspondientes:', 'LANG' );
+}
+
+//EMAIL
+add_settings_field( 'theme_email_cuenta', __( 'Email de Gmail:', 'LANG' ), 'custom_cuenta_email_render', 'customThemePageCuentas', PREFIX."_themePage_cuentas" );
+//Renderizado 
+function custom_cuenta_email_render() 
+{ 
+	$options = get_option( 'theme_settings' ); ?>
+
+	<p class="description"><?= __( "Escribe Email de Gmail" , "LANG" ); ?></p>
+	<input type='text' name='theme_settings[theme_email_cuenta]' value='<?= !empty($options['theme_email_cuenta']) ? $options['theme_email_cuenta'] : "" ; ?>' />
+	<?php
+}
+
+//PASSWORD
+add_settings_field( 'theme_email_password', __( 'Password de Gmail:', 'LANG' ), 'custom_cuenta_password_render', 'customThemePageCuentas', PREFIX."_themePage_cuentas"  );
+//Renderizado 
+function custom_cuenta_password_render() 
+{ 
+	$options = get_option( 'theme_settings' ); ?>
+
+	<p class="description"><?= __( "Escribe Password de Gmail" , "LANG" ); ?></p>
+	<input type='password' name='theme_settings[theme_email_password]' value='<?= !empty($options['theme_email_password']) ? $options['theme_email_password'] : "" ; ?>' />
+	<?php
+}
+
